@@ -9,12 +9,12 @@ import {
 import styles from './Footer.module.css';
 
 const services = [
-  { label: 'Web Design & Dev', href: '/services#web-design' },
-  { label: 'Website Maintenance', href: '/services#maintenance' },
-  { label: 'Mobile App Dev', href: '/services#mobile-app' },
-  { label: 'UI/UX Design', href: '/services#ui-ux' },
-  { label: 'Logo & Branding', href: '/services#graphic-logo' },
-  { label: 'Social Media', href: '/services#social-media' },
+  { label: 'UX Research & Audit', href: '/services#ux-audit' },
+  { label: 'Fintech Product Design', href: '/services#fintech-design' },
+  { label: 'Ecommerce Product Design', href: '/services#ecommerce-design' },
+  { label: 'Design Systems', href: '/services#design-systems' },
+  { label: 'Frontend Engineering', href: '/services#frontend' },
+  { label: 'Product Strategy', href: '/services#strategy' },
 ];
 
 const company = [

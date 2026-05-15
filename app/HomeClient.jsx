@@ -38,7 +38,6 @@ const portfolio = [
   { name: 'HealthyBites App', id: 'healthybites-ios', cat: 'Food Delivery', color: '#1D9E75', image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/a03b23121701695.60d1991150610.png' },
   { name: 'AlgoSassy Quant', id: 'algosassy', cat: 'Trading Platform', color: '#7F77DD', image: '/portfolio/thumbnails/algosassy.png', externalLink: 'https://algosassy.netlify.app/' },
   { name: 'Poll Brain Data', id: 'poll-brain', cat: 'Data Analytics', color: '#FF4F01', image: '/portfolio/thumbnails/poll-brain.png', externalLink: 'https://pollbrainanalytics.netlify.app/' },
-  { name: 'Stride Identity', id: 'stride-branding', cat: 'Brand Identity', color: '#FF4F01', image: '/portfolio/logos/stride logo - 3.png' },
 ];
 
 const process = [

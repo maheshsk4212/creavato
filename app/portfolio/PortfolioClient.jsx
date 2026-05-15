@@ -9,7 +9,7 @@ import {
 } from '@tabler/icons-react';
 import styles from './page.module.css';
 
-const filters = ['All work', 'Web design & dev', 'Mobile app', 'UI/UX', 'Logo & branding', 'Graphic Design'];
+const filters = ['All work', 'Web design & dev', 'Mobile app', 'UI/UX'];
 
 import { portfolioData } from '../../data/portfolioData';
 
@@ -17,15 +17,13 @@ const projects = Object.values(portfolioData).map(p => {
   let filter = 'UI/UX';
   if (p.cat.includes('Web')) filter = 'Web design & dev';
   else if (p.cat.includes('Mobile')) filter = 'Mobile app';
-  else if (p.cat.includes('Logo')) filter = 'Logo & branding';
-  else if (p.cat.includes('Graphic')) filter = 'Graphic Design';
   
   return {
     ...p,
     filter,
     link: p.externalLink || `/portfolio/${p.id}`
   };
-});
+}).filter(p => !p.cat.includes('Logo') && !p.cat.includes('Graphic'));
 
 export default function PortfolioPage() {
   const sectionRef = useScrollReveal();
