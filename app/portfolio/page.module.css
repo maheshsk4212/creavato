@@ -1,5 +1,5 @@
 .hero {
-  padding: 160px 0 var(--space-4xl);
+  padding: 70px 0 var(--space-4xl);
   border-bottom: 2px solid var(--border-primary);
 }
 
@@ -250,7 +250,7 @@
 }
 
 @media (max-width: 768px) {
-  .hero { padding: 120px 0 var(--space-3xl); }
+  .hero { padding: 70px 0 var(--space-3xl); }
   .projGrid { grid-template-columns: 1fr; }
   .projCard.featured { grid-column: span 1; }
   .filterBar { justify-content: center; }

@@ -38,16 +38,16 @@ export default function Footer() {
               Building digital products for growing businesses. Based in Bengaluru, India — working worldwide.
             </p>
             <div className={styles.socials}>
-              <a href="#" className={styles.socialIcon} aria-label="Instagram">
+              <a href="https://instagram.com/crevato" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="Instagram">
                 <IconBrandInstagram size={20} />
               </a>
-              <a href="#" className={styles.socialIcon} aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/company/122154262/" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="LinkedIn">
                 <IconBrandLinkedin size={20} />
               </a>
-              <a href="#" className={styles.socialIcon} aria-label="WhatsApp">
+              <a href="https://wa.me/917019440153" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="WhatsApp">
                 <IconBrandWhatsapp size={20} />
               </a>
-              <a href="#" className={styles.socialIcon} aria-label="Behance">
+              <a href="https://behance.net/crevato" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="Behance">
                 <IconBrandBehance size={20} />
               </a>
             </div>
@@ -81,8 +81,8 @@ export default function Footer() {
           <div className={styles.linkCol}>
             <h4 className={styles.colTitle}>Get in Touch</h4>
             <div className={styles.linkList}>
-              <a href="mailto:creavato@outlook.com" className={styles.footerLink}>
-                creavato@outlook.com
+              <a href="mailto:crevato@outlook.com" className={styles.footerLink}>
+                crevato@outlook.com
               </a>
               <a href="tel:+917019440153" className={styles.footerLink}>
                 +91 7019440153

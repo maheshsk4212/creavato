@@ -39,6 +39,49 @@ export default function RootLayout({ children }) {
         </main>
         <Footer />
         <WhatsAppFAB />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'ProfessionalService',
+              'name': 'Crevato',
+              'image': 'https://crevato.in/logo.png',
+              'url': 'https://crevato.in',
+              'telephone': '+917019440153',
+              'address': {
+                '@type': 'PostalAddress',
+                'streetAddress': 'no 43, KR puram',
+                'addressLocality': 'Bengaluru',
+                'postalCode': '560049',
+                'addressCountry': 'IN'
+              },
+              'geo': {
+                '@type': 'GeoCoordinates',
+                'latitude': 12.9716,
+                'longitude': 77.5946
+              },
+              'openingHoursSpecification': {
+                '@type': 'OpeningHoursSpecification',
+                'dayOfWeek': [
+                  'Monday',
+                  'Tuesday',
+                  'Wednesday',
+                  'Thursday',
+                  'Friday',
+                  'Saturday'
+                ],
+                'opens': '09:00',
+                'closes': '21:00'
+              },
+              'sameAs': [
+                'https://www.linkedin.com/company/122154262/',
+                'https://instagram.com/crevato',
+                'https://behance.net/crevato'
+              ]
+            })
+          }}
+        />
       </body>
     </html>
   );
