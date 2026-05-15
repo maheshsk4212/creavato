@@ -256,7 +256,7 @@ export default function HomePage() {
               Get a free quote <IconArrowUpRight size={18} />
             </Link>
             <a
-              href="https://wa.me/919876543210"
+              href="https://wa.me/917019440153"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-ghost btn-lg"

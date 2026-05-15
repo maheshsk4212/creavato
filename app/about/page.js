@@ -117,7 +117,7 @@ export default function AboutPage() {
             <div className={styles.mvCard}>
               <div className={styles.mvLabel}>OUR MISSION</div>
               <h3 className={styles.mvTitle}>Make great digital design accessible to every growing business</h3>
-              <p>Not just for big corporates with big budgets — but for the founder working out of a co-working space in Koramangala.</p>
+              <p>Not just for big corporates with big budgets — but for the founder working out of a co-working space in KR Puram.</p>
             </div>
             <div className={styles.mvCard}>
               <div className={styles.mvLabel}>OUR VISION</div>

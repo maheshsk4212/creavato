@@ -111,7 +111,7 @@ export default function ContactPage() {
                     </div>
                     <div className={styles.fieldGroup}>
                       <label className={styles.fieldLabel}>Phone / WhatsApp</label>
-                      <input type="tel" className={styles.field} placeholder="+91 98765 43210" />
+                      <input type="tel" className={styles.field} placeholder="+91 7019440153" />
                     </div>
                   </div>
 
@@ -169,25 +169,25 @@ export default function ContactPage() {
             <div className={styles.sidebar}>
               <div className={styles.sideCard}>
                 <h4 className={styles.sideTitle}>Prefer a direct message?</h4>
-                <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className={styles.whatsappBtn}>
-                  <IconBrandWhatsapp size={24} /> Chat on WhatsApp
+                <a href="https://wa.me/917019440153" target="_blank" rel="noopener noreferrer" className={styles.whatsappBtn}>
+                  <IconBrandWhatsapp size={20} /> Chat on WhatsApp
                 </a>
-                <p className={styles.sideNote}>+91 98765 43210 · Usually responds in under 30 mins</p>
+                <p className={styles.sideNote}>+91 7019440153 · Usually responds in under 30 mins</p>
               </div>
 
               <div className={styles.sideCard}>
                 <h4 className={styles.sideTitle}>Contact details</h4>
                 <div className={styles.contactItem}>
                   <div className={styles.contactIcon}><IconMail size={20} /></div>
-                  <div><span className={styles.contactLabel}>Email</span><br /><a href="mailto:hello@crevato.in" style={{ fontWeight: 600 }}>hello@crevato.in</a></div>
+                  <div><span className={styles.contactLabel}>Email</span><br /><a href="mailto:creavato@outlook.com" style={{ fontWeight: 600 }}>creavato@outlook.com</a></div>
                 </div>
                 <div className={styles.contactItem}>
-                  <div className={styles.contactIcon}><IconPhone size={20} /></div>
-                  <div><span className={styles.contactLabel}>Phone</span><br /><span style={{ fontWeight: 600 }}>+91 98765 43210</span></div>
+                  <div className={styles.contactIcon}><IconBrandWhatsapp size={20} /></div>
+                  <div><span className={styles.contactLabel}>Phone</span><br /><span style={{ fontWeight: 600 }}>+91 7019440153</span></div>
                 </div>
                 <div className={styles.contactItem}>
                   <div className={styles.contactIcon}><IconMapPin size={20} /></div>
-                  <div><span className={styles.contactLabel}>Location</span><br /><span style={{ fontWeight: 600 }}>Koramangala, Bengaluru</span></div>
+                  <div><span className={styles.contactLabel}>Location</span><br /><span style={{ fontWeight: 600 }}>no 43, KR puram, bengaluru - 560049</span></div>
                 </div>
               </div>
 

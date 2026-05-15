@@ -81,14 +81,14 @@ export default function Footer() {
           <div className={styles.linkCol}>
             <h4 className={styles.colTitle}>Get in Touch</h4>
             <div className={styles.linkList}>
-              <a href="mailto:hello@crevato.in" className={styles.footerLink}>
-                hello@crevato.in
+              <a href="mailto:creavato@outlook.com" className={styles.footerLink}>
+                creavato@outlook.com
               </a>
-              <a href="tel:+919876543210" className={styles.footerLink}>
-                +91 98765 43210
+              <a href="tel:+917019440153" className={styles.footerLink}>
+                +91 7019440153
               </a>
               <span className={styles.footerLink}>
-                Koramangala, Bengaluru
+                no 43, KR puram, bengaluru - 560049
               </span>
             </div>
             <Link href="/contact" className={`btn btn-primary ${styles.footerCta}`}>
