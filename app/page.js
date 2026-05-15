@@ -1,9 +1,9 @@
 import HomeClient from './HomeClient';
 
 export const metadata = {
-  title: 'Crevato — Digital Agency in Bengaluru | Web, App, UI/UX & Branding',
-  description: 'We build digital products that grow your business. High-performance Next.js websites, iOS/Android apps, and world-class UI/UX design. Based in Bengaluru, serving clients worldwide.',
-  keywords: 'digital agency Bengaluru, web designers near me, app development India, premium UI/UX studio, startup design agency',
+  title: 'Crevato — UX-Led Fintech & Ecommerce Product Studio',
+  description: 'Specialist digital product studio in Bengaluru. We design and build scalable fintech experiences and ecommerce platforms with a focus on trust, conversion, and world-class UX.',
+  keywords: 'fintech UX design agency, ecommerce product studio, banking UI design, conversion optimization, design systems, Bengaluru digital studio',
 };
 
 export default function HomePage() {

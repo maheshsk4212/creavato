@@ -21,11 +21,13 @@ import {
 import styles from './page.module.css';
 
 const serviceOptions = [
-  'Web design & dev', 'Maintenance', 'Mobile app',
-  'UI/UX design', 'Logo & branding', 'Social media', 'Not sure yet',
+  'UX Research & Audit', 'Fintech Product Design', 'Ecommerce Product Design',
+  'Design Systems', 'Frontend Engineering', 'Product Strategy', 'Other',
 ];
 
-const budgetOptions = ['Under ₹25k', '₹25k–75k', '₹75k–2L', '₹2L+'];
+const budgetOptions = ['₹1L – ₹5L', '₹5L – ₹15L', '₹15L+', 'To be discussed'];
+
+const stageOptions = ['Idea / MVP', 'Growth Stage', 'Enterprise', 'Existing Product Redesign'];
 
 const processSteps = [
   { num: '1', title: 'We review your brief', desc: 'We read every submission personally — no bots, no auto-replies.' },
@@ -46,6 +48,7 @@ export default function ContactPage() {
   const formRef = useRef();
   const [selectedServices, setSelectedServices] = useState([]);
   const [selectedBudget, setSelectedBudget] = useState('');
+  const [selectedStage, setSelectedStage] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [hpValue, setHpValue] = useState(''); // Honeypot state
@@ -167,7 +170,24 @@ export default function ContactPage() {
                   </div>
 
                   <div className={styles.fieldGroup}>
-                    <label className={styles.fieldLabel}>Budget range</label>
+                    <label className={styles.fieldLabel}>Project Stage</label>
+                    <div className={styles.budgetOptions}>
+                      {stageOptions.map((s) => (
+                        <button
+                          key={s}
+                          type="button"
+                          className={`${styles.budgetOpt} ${selectedStage === s ? styles.selected : ''}`}
+                          onClick={() => setSelectedStage(s)}
+                        >
+                          {s}
+                        </button>
+                      ))}
+                    </div>
+                    <input type="hidden" name="project_stage" value={selectedStage} />
+                  </div>
+
+                  <div className={styles.fieldGroup}>
+                    <label className={styles.fieldLabel}>Investment range</label>
                     <div className={styles.budgetOptions}>
                       {budgetOptions.map((b) => (
                         <button

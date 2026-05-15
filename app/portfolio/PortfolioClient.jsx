@@ -39,7 +39,10 @@ export default function PortfolioPage() {
         <div className="container text-center">
           <span className="section-tag reveal">Our work</span>
           <h1 className="section-title reveal">Projects we&apos;re proud of <span className="font-hand" style={{ transform: 'rotate(-5deg)' }}>so far!</span></h1>
-          <p className="section-subtitle centered reveal">From early-stage startups to established businesses — here&apos;s a look at what we&apos;ve built, designed, and shipped.</p>
+          <p className="section-subtitle centered reveal">From early-stage startups to global enterprise teams — here&apos;s a look at what we&apos;ve built, designed, and shipped.</p>
+          <div className="reveal" style={{ marginTop: 'var(--space-md)', color: '#A0A0A0', fontSize: '13px', fontStyle: 'italic' }}>
+            *Note: Selected work is shown in anonymized format due to client confidentiality and NDA agreements.
+          </div>
         </div>
       </section>
 

@@ -71,10 +71,10 @@ export default function AboutPage() {
           <div className={styles.heroGrid}>
             <div className="reveal">
               <span className="section-tag">Our story</span>
-              <h1 className="section-title">We're a small team that does <span className="font-hand" style={{ transform: 'rotate(-5deg)' }}>big</span> digital work</h1>
-              <p className="section-subtitle">
-                Founded in Bengaluru, we help businesses across India build their digital presence — from a first logo to a full mobile app. We care about craft, timelines, and real results.
-              </p>
+               <h1 className="section-title">We&apos;re a specialist studio with <span className="font-hand" style={{ transform: 'rotate(-5deg)' }}>deep</span> product expertise</h1>
+               <p className="section-subtitle">
+                With over a decade of experience in UI/UX leadership, we help fintech and ecommerce teams build digital products that users trust. We care about craft, strategy, and measurable outcomes.
+               </p>
             </div>
             <div className={`${styles.heroImage} reveal`}>
               <img src="/team/team-group.png" alt="Crevato Team" className={styles.teamImg} />
@@ -99,13 +99,13 @@ export default function AboutPage() {
               </div>
             </div>
             <div className={styles.founderStory}>
-              <p>Hi, I&apos;m Mahesh SK. I started this agency after spending years freelancing for startups and realising most small businesses were either overpaying for bad design or settling for templates that looked like everyone else&apos;s.</p>
-              <p>I built this team to fix that — to give small and mid-sized businesses access to design and development quality that actually competes with top-tier studios.</p>
+              <p>Hi, I&apos;m Mahesh SK. I founded Crevato after a decade of leading UI/UX for complex fintech products and enterprise platforms. I saw a gap in the market: most agencies were too broad, and most freelancers lacked the execution depth for high-stakes products.</p>
+              <p>I built this specialist studio to fix that — providing high-growth teams with the strategic design and frontend execution quality typically reserved for Tier-1 global studios.</p>
               <blockquote className={styles.quote}>
-                <p>&ldquo;Good design isn&apos;t about how it looks. It&apos;s about whether it works for the person using it and the business goals behind it.&rdquo;</p>
-                <cite>— Mahesh SK, Founder</cite>
+                <p>&ldquo;In fintech and ecommerce, design is more than just visuals. It&apos;s about building trust and reducing friction at the most critical points of the user journey.&rdquo;</p>
+                <cite>— Mahesh SK, Founder & Studio Lead</cite>
               </blockquote>
-              <p>We&apos;re based in Bengaluru but work with clients across India and internationally. Every project we take on gets our full attention — not handed off to juniors or outsourced.</p>
+              <p>Based in Bengaluru, we operate as a specialist collective. We don&apos;t just deliver Figma files; we deliver product strategy and production-ready frontend code that performs.</p>
             </div>
           </div>
         </div>

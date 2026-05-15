@@ -18,12 +18,12 @@ import {
 import styles from './page.module.css';
 
 const services = [
-  { icon: IconDeviceDesktop, title: 'Web Design & Dev', tag: 'Custom sites', href: '/services#web-design' },
-  { icon: IconTool, title: 'Website Maintenance', tag: 'Monthly plans', href: '/services#maintenance' },
-  { icon: IconDeviceMobile, title: 'Mobile App Design', tag: 'iOS & Android', href: '/services#mobile-app' },
-  { icon: IconLayout, title: 'UI/UX Designing', tag: 'Figma & prototypes', href: '/services#ui-ux' },
-  { icon: IconBrush, title: 'Graphic & Logo', tag: 'Brand identity', href: '/services#graphic-logo' },
-  { icon: IconBrandInstagram, title: 'Social Media', tag: 'Content & growth', href: '/services#social-media' },
+  { icon: IconLayout, title: 'UX Research & Audit', tag: 'Data-driven insights', href: '/services#ui-ux' },
+  { icon: IconDeviceDesktop, title: 'Fintech Product Design', tag: 'Complex experiences', href: '/services#web-design' },
+  { icon: IconDeviceMobile, title: 'Ecommerce Mobile Apps', tag: 'Conversion focused', href: '/services#mobile-app' },
+  { icon: IconShieldCheck, title: 'Design Systems', tag: 'Scalable foundations', href: '/services#design-systems' },
+  { icon: IconTool, title: 'Frontend Engineering', tag: 'Next.js & React', href: '/services#frontend' },
+  { icon: IconStar, title: 'Product Strategy', tag: 'Growth focused', href: '/services#strategy' },
 ];
 
 const stats = [
@@ -87,14 +87,13 @@ export default function HomePage() {
           <div className={styles.heroGrid}>
             <div className={styles.heroContent}>
               <h1 className={`${styles.heroTitle} reveal`}>
-                We build digital products<br />
+                UX-led <span className="font-hand">Fintech</span> and<br />
                 <span className={styles.highlightWrapper}>
-                  that grow your business
-                  <span className={`font-hand ${styles.heroAnnotation}`}>*fast!</span>
+                  Ecommerce product studio
                 </span>
               </h1>
               <p className={`${styles.heroSub} reveal`}>
-                Web design, mobile apps, UI/UX & branding — everything your brand needs to stand out online.
+                We design and build scalable digital products that improve trust, usability, and conversion for high-growth financial and retail teams.
               </p>
               <div className={`btn-row reveal`}>
                 <Link href="/contact" className="btn btn-primary btn-lg">
