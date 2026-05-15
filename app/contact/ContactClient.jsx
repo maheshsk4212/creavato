@@ -21,13 +21,15 @@ import {
 import styles from './page.module.css';
 
 const serviceOptions = [
-  'UX Research & Audit', 'Fintech Product Design', 'Ecommerce Product Design',
-  'Design Systems', 'Frontend Engineering', 'Product Strategy', 'Other',
+  'UX Audit & Research', 'Fintech Product Design', 'Ecommerce Growth Design',
+  'Design Systems', 'Frontend Engineering (React/Next)', 'Product Strategy', 'Other',
 ];
 
 const budgetOptions = ['₹1L – ₹5L', '₹5L – ₹15L', '₹15L+', 'To be discussed'];
 
-const stageOptions = ['Idea / MVP', 'Growth Stage', 'Enterprise', 'Existing Product Redesign'];
+const stageOptions = ['Idea / MVP', 'Growth Stage', 'Enterprise', 'Legacy Redesign'];
+
+const timelineOptions = ['Within 1 month', '1–3 months', '3–6 months', '6 months+'];
 
 const processSteps = [
   { num: '1', title: 'We review your brief', desc: 'We read every submission personally — no bots, no auto-replies.' },
@@ -49,6 +51,7 @@ export default function ContactPage() {
   const [selectedServices, setSelectedServices] = useState([]);
   const [selectedBudget, setSelectedBudget] = useState('');
   const [selectedStage, setSelectedStage] = useState('');
+  const [selectedTimeline, setSelectedTimeline] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [hpValue, setHpValue] = useState(''); // Honeypot state
@@ -184,6 +187,28 @@ export default function ContactPage() {
                       ))}
                     </div>
                     <input type="hidden" name="project_stage" value={selectedStage} />
+                  </div>
+
+                  <div className={styles.fieldGroup}>
+                    <label className={styles.fieldLabel}>Ideal Timeline</label>
+                    <div className={styles.budgetOptions}>
+                      {timelineOptions.map((t) => (
+                        <button
+                          key={t}
+                          type="button"
+                          className={`${styles.budgetOpt} ${selectedTimeline === t ? styles.selected : ''}`}
+                          onClick={() => setSelectedTimeline(t)}
+                        >
+                          {t}
+                        </button>
+                      ))}
+                    </div>
+                    <input type="hidden" name="project_timeline" value={selectedTimeline} />
+                  </div>
+
+                  <div className={styles.fieldGroup}>
+                    <label className={styles.fieldLabel}>Primary Business Goal</label>
+                    <input type="text" name="business_goal" className={styles.field} placeholder="e.g. Increase checkout conversion by 20%" />
                   </div>
 
                   <div className={styles.fieldGroup}>

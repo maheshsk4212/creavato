@@ -86,20 +86,20 @@ export default function HomePage() {
           <div className={styles.heroGrid}>
             <div className={styles.heroContent}>
               <h1 className={`${styles.heroTitle} reveal`}>
-                UX-led <span className="font-hand">Fintech</span> and<br />
+                UX-led <span className="font-hand">fintech</span> product design and<br />
                 <span className={styles.highlightWrapper}>
-                  Ecommerce product studio
+                  frontend engineering
                 </span>
               </h1>
               <p className={`${styles.heroSub} reveal`}>
-                We design and build scalable digital products that improve trust, usability, and conversion for high-growth financial and retail teams.
+                We help fintech and ecommerce teams launch trusted, scalable digital products that improve conversion.
               </p>
               <div className={`btn-row reveal`}>
                 <Link href="/contact" className="btn btn-primary btn-lg">
-                  Start a project <IconArrowUpRight size={18} />
+                  Book Discovery Call
                 </Link>
                 <Link href="/portfolio" className="btn btn-ghost btn-lg">
-                  View our work
+                  View Case Studies
                 </Link>
               </div>
               <div className={`${styles.trustStrip} reveal`}>
@@ -264,16 +264,11 @@ export default function HomePage() {
           </p>
           <div className={`btn-row centered reveal`} style={{ marginTop: 'var(--space-2xl)' }}>
             <Link href="/contact" className="btn btn-accent btn-lg">
-              Get a free quote <IconArrowUpRight size={18} />
+              Book Discovery Call <IconArrowUpRight size={18} />
             </Link>
-            <a
-              href="https://wa.me/917019440153"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-ghost btn-lg"
-            >
-              <IconBrandWhatsapp size={20} /> WhatsApp us
-            </a>
+            <Link href="/portfolio" className="btn btn-ghost btn-lg">
+              View Case Studies
+            </Link>
           </div>
         </div>
       </section>

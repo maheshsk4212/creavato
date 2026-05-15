@@ -92,7 +92,7 @@ export default function Footer() {
               </span>
             </div>
             <Link href="/contact" className={`btn btn-primary ${styles.footerCta}`}>
-              Start a project <IconArrowUpRight size={16} />
+              Book Discovery Call <IconArrowUpRight size={16} />
             </Link>
           </div>
         </div>

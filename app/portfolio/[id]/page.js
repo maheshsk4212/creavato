@@ -48,6 +48,32 @@ export default function ProjectPage({ params }) {
         </div>
       </section>
 
+      {/* ── CASE STUDY OVERVIEW ── */}
+      <section className={styles.caseStudyOverview}>
+        <div className="container">
+          <div className={styles.overviewGrid}>
+            {project.challenge && (
+              <div className={styles.overviewBox}>
+                <h3 className={styles.boxTitle}>The Challenge</h3>
+                <p>{project.challenge}</p>
+              </div>
+            )}
+            {project.solution && (
+              <div className={styles.overviewBox}>
+                <h3 className={styles.boxTitle}>The Solution</h3>
+                <p>{project.solution}</p>
+              </div>
+            )}
+            {project.result && (
+              <div className={styles.overviewBox}>
+                <h3 className={styles.boxTitle}>The Result</h3>
+                <p className={styles.resultText}>{project.result}</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
       {/* ── PROJECT CONTENT ── */}
       <section className={styles.content}>
         <div className="container">
@@ -76,13 +102,13 @@ export default function ProjectPage({ params }) {
       {/* ── FOOTER CTA ── */}
       <section className={styles.footerCta}>
         <div className="container text-center">
-          <h2 className="section-title">Ready to build your next project?</h2>
+          <h2 className="section-title">Ready to drive similar results for your product?</h2>
           <div className="btn-row centered" style={{ marginTop: 'var(--space-xl)' }}>
             <Link href="/contact" className="btn btn-primary btn-lg">
-              Start a project <IconArrowUpRight size={18} />
+              Book Discovery Call <IconArrowUpRight size={18} />
             </Link>
             <Link href="/portfolio" className="btn btn-ghost btn-lg">
-              Explore more work
+              View more case studies
             </Link>
           </div>
         </div>

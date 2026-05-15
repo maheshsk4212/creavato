@@ -16,6 +16,9 @@ export const portfolioData = {
     "result": "AI-Driven UX",
     "resultIcon": IconTrendingUp,
     "image": "/portfolio/thumbnails/digicredit.png",
+    "challenge": "A leading Middle East bank needed to modernize its legacy retail banking app to compete with agile neo-banks. The goal was to simplify cross-border transfers and multi-currency management for a diverse expat population.",
+    "solution": "We designed a secure, user-centric mobile experience that prioritized speed and transparency. Key features included a 'Quick Transfer' dashboard and intuitive currency conversion tools.",
+    "result": "25% increase in cross-border transfer volume and a significant boost in App Store ratings from 3.2 to 4.8 stars.",
     "sections": [
       { "type": "image", "url": "https://mir-s3-cdn-cf.behance.net/project_modules/fs_webp/2f4e4e145628331.62a19ea8d4f51.png" },
       { "type": "image", "url": "https://mir-s3-cdn-cf.behance.net/project_modules/fs_webp/4186dc145628331.62a19ea8d5907.png" },
@@ -85,6 +88,9 @@ export const portfolioData = {
     "result": "Modern Interface",
     "resultIcon": IconTrendingUp,
     "image": "/portfolio/thumbnails/bigbasket.png",
+    "challenge": "India's largest grocery platform faced high drop-off rates at the checkout stage due to a complex multi-step process and unclear delivery slot selection.",
+    "solution": "We optimized the entire checkout funnel, implementing a one-tap slot selection and a persistent shopping cart summary to reduce cognitive load.",
+    "result": "12% reduction in cart abandonment and a 20% faster checkout time for repeat customers.",
     "sections": [
       { "type": "image", "url": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/c8be5f160318003.63b2ab4fb1779.png" },
       { "type": "image", "url": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/74a149160318003.63b2ab4fb24de.png" },
@@ -103,6 +109,9 @@ export const portfolioData = {
     "result": "Enterprise UX",
     "resultIcon": IconLayout,
     "image": "/portfolio/thumbnails/insurance-portal.png",
+    "challenge": "A global insurance provider was using a fragmented internal system for claims processing, leading to long turnaround times and high employee frustration.",
+    "solution": "We built a high-performance enterprise dashboard that consolidated all claim data into a single, intuitive view with AI-powered prioritization.",
+    "result": "Reduced average claims processing time by 30% and improved internal team efficiency by 40% within the first quarter.",
     "sections": [
       { "type": "image", "url": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/6e741b205288547.66b8963f543a6.png" }
     ]
