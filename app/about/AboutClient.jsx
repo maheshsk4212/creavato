@@ -95,10 +95,10 @@ export default function AboutPage() {
                 </div>
               </div>
               <ul className={styles.founderCreds}>
-                <li>10+ years design leadership experience</li>
-                <li>Specialist in E-commerce & Fintech UX</li>
-                <li>Led design for complex Enterprise applications</li>
-                <li>Ex-SaaS product designer</li>
+                <li>Lead UI/UX Designer (10+ Years Exp.)</li>
+                <li>FinTech & Banking Specialist (Oracle OBDX)</li>
+                <li>User Research & Data Visualization</li>
+                <li>AI-Driven Design</li>
               </ul>
             </div>
             <div className={styles.founderCard}>
