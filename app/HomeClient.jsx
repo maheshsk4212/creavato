@@ -381,49 +381,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── FOUNDER SECTION ── */}
-      <section className="section">
-        <div className="container">
-          <div className="text-center">
-            <span className="section-tag reveal">Leadership</span>
-            <h2 className="section-title reveal">Backed by experience</h2>
-            <p className="section-subtitle centered reveal">Crevato is guided by founders with over a decade of design and business operations experience.</p>
-          </div>
-          <div className={`${styles.foundersGrid} reveal`}>
-            <div className={styles.founderCard}>
-              <div className={styles.founderHeader}>
-                <div className={styles.founderImgPlaceholder} style={{ background: '#3b82f6' }}>MSK</div>
-                <div>
-                  <h3 className={styles.founderName}>Mahesh SK</h3>
-                  <div className={styles.founderRole}>UX/UI Head</div>
-                </div>
-              </div>
-              <ul className={styles.founderCreds}>
-                <li>10+ years design leadership experience</li>
-                <li>Specialist in E-commerce & Fintech UX</li>
-                <li>Led design for complex Enterprise applications</li>
-                <li>Ex-SaaS product designer</li>
-              </ul>
-            </div>
-            <div className={styles.founderCard}>
-              <div className={styles.founderHeader}>
-                <div className={styles.founderImgPlaceholder} style={{ background: '#8b5cf6' }}>KK</div>
-                <div>
-                  <h3 className={styles.founderName}>Kaif Kareeme</h3>
-                  <div className={styles.founderRole}>Business & Creative Operations</div>
-                </div>
-              </div>
-              <ul className={styles.founderCreds}>
-                <li>Founder & Managing Director of AVAQON</li>
-                <li>Creative business & studio leadership since 2018</li>
-                <li>Global operational and delivery oversight</li>
-                <li>Expert in scalable agency partnerships</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ── PROCESS ── */}
       <section className="section" style={{ borderTop: '1px solid var(--border-primary)', borderBottom: '1px solid var(--border-primary)' }}>
         <div className="container text-center">
