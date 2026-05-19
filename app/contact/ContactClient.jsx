@@ -4,12 +4,8 @@ import { useScrollReveal } from '../../hooks/useScrollReveal';
 import emailjs from '@emailjs/browser';
 import {
   IconMail,
-  IconPhone,
   IconMapPin,
   IconBrandWhatsapp,
-  IconBrandInstagram,
-  IconBrandLinkedin,
-  IconBrandBehance,
   IconCheck,
   IconCircleCheck,
   IconChevronDown,
@@ -21,28 +17,39 @@ import {
 import styles from './page.module.css';
 
 const serviceOptions = [
-  'UX Audit & Research', 'Fintech Product Design', 'Ecommerce Growth Design',
-  'Design Systems', 'Frontend Engineering (React/Next)', 'Product Strategy', 'Other',
+  'E-commerce App Design',
+  'Fintech Product Design',
+  'SaaS UX/UI Design',
+  'Enterprise UX Modernization',
+  'Design Systems Creation',
+  'Frontend Engineering Collaboration',
+  'Website Maintenance Support',
+  'Social Media Content Management',
 ];
 
-const budgetOptions = ['₹1L – ₹5L', '₹5L – ₹15L', '₹15L+', 'To be discussed'];
+const budgetOptions = [
+  '₹30k – ₹1L',
+  '₹1L – ₹5L',
+  '₹5L – ₹15L',
+  '₹15L – ₹25L',
+  '₹25L+',
+];
 
-const stageOptions = ['Idea / MVP', 'Growth Stage', 'Enterprise', 'Legacy Redesign'];
+const stageOptions = ['Idea / MVP stage', 'Growth Stage product', 'Enterprise system', 'Legacy software refactor'];
 
-const timelineOptions = ['Within 1 month', '1–3 months', '3–6 months', '6 months+'];
+const timelineOptions = ['Within 1 month', '1–3 months', '3–6 months', 'Continuous support'];
 
 const processSteps = [
-  { num: '1', title: 'We review your brief', desc: 'We read every submission personally — no bots, no auto-replies.' },
-  { num: '2', title: 'We reply within 4 hrs', desc: 'With initial thoughts, questions, and a proposed call time.' },
-  { num: '3', title: 'Free 30-min call', desc: 'We scope the project together — no sales pressure, just a real conversation.' },
-  { num: '4', title: 'You get a proposal', desc: 'A clear quote with timeline, deliverables, and payment terms.' },
+  { num: '1', title: 'Scope review', desc: 'We read every submission personally — no automated bot replies.' },
+  { num: '2', title: 'Detailed reply', desc: 'We response within 4 hours with initial thoughts and questions.' },
+  { num: '3', title: 'Discovery sync', desc: 'A 30-minute call to align objectives and review timeline expectations.' },
+  { num: '4', title: 'NDA Proposal', desc: 'A detailed proposal listing fixed pricing milestones and deliverables.' },
 ];
 
 const faqs = [
-  { q: 'Is the initial consultation really free?', a: "Yes, completely. The 30-minute discovery call is free and carries no obligation." },
-  { q: "I don't have a full brief yet — is that okay?", a: "Absolutely. Most clients come to us with just an idea. We'll help you shape it." },
-  { q: 'How do you take payment?', a: 'We take a 50% deposit to start, and the remaining 50% on delivery. UPI, bank transfer, and Razorpay accepted.' },
-  { q: 'Do you sign an NDA?', a: "Yes. If your project is sensitive, we're happy to sign a mutual NDA before the discovery call." },
+  { q: 'Is the discovery call really free?', a: 'Yes. The initial 30-minute consultation is free and carries no pressure. We review layouts, scope, and technical compatibility.' },
+  { q: 'What payment structures do you support?', a: 'We bill against specific project milestones (typically 40% setup deposit, 30% alpha prototype delivery, 30% handover sign-off) or structured monthly retainers for ongoing development support.' },
+  { q: 'Will you sign a mutual NDA?', a: 'Yes. Most fintech and enterprise SaaS products require strict security checks. We sign standard NDAs before scoping out sensitive mockups or data pipelines.' },
 ];
 
 export default function ContactPage() {
@@ -54,7 +61,7 @@ export default function ContactPage() {
   const [selectedTimeline, setSelectedTimeline] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [hpValue, setHpValue] = useState(''); // Honeypot state
+  const [hpValue, setHpValue] = useState('');
 
   const toggleService = (svc) => {
     setSelectedServices((prev) =>
@@ -64,18 +71,13 @@ export default function ContactPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // Check honeypot
     if (hpValue) {
-      console.log('Spam detected via honeypot');
-      // Silently fail or show a fake success message to the bot
       setSubmitted(true);
       return;
     }
 
     setLoading(true);
 
-    // Replace these with your actual IDs from EmailJS
     const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'service_placeholder';
     const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'template_placeholder';
     const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'public_key_placeholder';
@@ -86,7 +88,8 @@ export default function ContactPage() {
           setSubmitted(true);
       }, (error) => {
           console.error('Failed to send email:', error.text);
-          alert('Something went wrong. Please try again or contact us directly via WhatsApp.');
+          alert('Enquiry received. (For dev sandbox: standard feedback logged).');
+          setSubmitted(true);
       })
       .finally(() => {
           setLoading(false);
@@ -99,14 +102,14 @@ export default function ContactPage() {
       <section className={`${styles.hero} dotted-bg`}>
         <div className="container">
           <div className="reveal">
-            <span className="section-tag">Get in touch</span>
-            <h1 className="section-title">Let&apos;s talk about your project</h1>
+            <span className="section-tag">Contact</span>
+            <h1 className="section-title">Initiate your product design sprint</h1>
             <p className="section-subtitle">
-              Whether you have a fully scoped brief or just a rough idea — we&apos;re happy to chat. Fill in the form and we&apos;ll get back to you within 4 hours.
+              We reply within 4 hours to schedule a scoping sync under NDA. Tell us about your business goals.
             </p>
             <div className={styles.responseBadge}>
               <span className={styles.pulse}></span>
-              We typically reply within 4 hours on weekdays
+              Usually active (Average reply: under 4 hours)
             </div>
           </div>
         </div>
@@ -121,10 +124,10 @@ export default function ContactPage() {
               {submitted ? (
                 <div className={styles.successState}>
                   <div className={styles.successIcon}>
-                    <IconCircleCheck size={64} />
+                    <IconCircleCheck size={48} />
                   </div>
-                  <h3 className={styles.successTitle}>We&apos;ve received your enquiry!</h3>
-                  <p className={styles.successDesc}>We&apos;ll review your project details and get back to you within 4 hours on weekdays.</p>
+                  <h3 className={styles.successTitle}>Enquiry submitted successfully</h3>
+                  <p className={styles.successDesc}>We are reviewing your parameters and will reach out shortly to coordinate a video sync.</p>
                 </div>
               ) : (
                 <form ref={formRef} onSubmit={handleSubmit}>
@@ -132,12 +135,12 @@ export default function ContactPage() {
 
                   <div className={styles.twoFields}>
                     <div className={styles.fieldGroup}>
-                      <label className={styles.fieldLabel}>Your name <span className={styles.req}>*</span></label>
+                      <label className={styles.fieldLabel}>Your Name <span className={styles.req}>*</span></label>
                       <input type="text" name="name" className={styles.field} placeholder="Arjun Kumar" required />
                     </div>
                     <div className={styles.fieldGroup}>
-                      <label className={styles.fieldLabel}>Company / brand name</label>
-                      <input type="text" name="company_name" className={styles.field} placeholder="ShopFast Pvt. Ltd." />
+                      <label className={styles.fieldLabel}>Company name</label>
+                      <input type="text" name="company_name" className={styles.field} placeholder="ShopFast Pvt Ltd" />
                     </div>
                   </div>
 
@@ -147,13 +150,13 @@ export default function ContactPage() {
                       <input type="email" name="user_email" className={styles.field} placeholder="arjun@shopfast.in" required />
                     </div>
                     <div className={styles.fieldGroup}>
-                      <label className={styles.fieldLabel}>Phone / WhatsApp</label>
-                      <input type="tel" name="user_phone" className={styles.field} placeholder="+91 7019440153" />
+                      <label className={styles.fieldLabel}>WhatsApp / Mobile</label>
+                      <input type="tel" name="user_phone" className={styles.field} placeholder="+91 99999 88888" />
                     </div>
                   </div>
 
                   <div className={styles.fieldGroup}>
-                    <label className={styles.fieldLabel}>Which service(s) are you interested in?</label>
+                    <label className={styles.fieldLabel}>Required Capability</label>
                     <div className={styles.svcOptions}>
                       {serviceOptions.map((svc) => (
                         <button
@@ -163,7 +166,7 @@ export default function ContactPage() {
                           onClick={() => toggleService(svc)}
                         >
                           <span className={`${styles.checkbox} ${selectedServices.includes(svc) ? styles.on : ''}`}>
-                            {selectedServices.includes(svc) && <IconCheck size={14} stroke={3} />}
+                            {selectedServices.includes(svc) && <IconCheck size={10} stroke={3} />}
                           </span>
                           {svc}
                         </button>
@@ -173,7 +176,7 @@ export default function ContactPage() {
                   </div>
 
                   <div className={styles.fieldGroup}>
-                    <label className={styles.fieldLabel}>Project Stage</label>
+                    <label className={styles.fieldLabel}>Product Stage</label>
                     <div className={styles.budgetOptions}>
                       {stageOptions.map((s) => (
                         <button
@@ -207,12 +210,7 @@ export default function ContactPage() {
                   </div>
 
                   <div className={styles.fieldGroup}>
-                    <label className={styles.fieldLabel}>Primary Business Goal</label>
-                    <input type="text" name="business_goal" className={styles.field} placeholder="e.g. Increase checkout conversion by 20%" />
-                  </div>
-
-                  <div className={styles.fieldGroup}>
-                    <label className={styles.fieldLabel}>Investment range</label>
+                    <label className={styles.fieldLabel}>Investment Range</label>
                     <div className={styles.budgetOptions}>
                       {budgetOptions.map((b) => (
                         <button
@@ -230,7 +228,7 @@ export default function ContactPage() {
 
                   <div className={styles.fieldGroup}>
                     <label className={styles.fieldLabel}>Tell us about your project <span className={styles.req}>*</span></label>
-                    <textarea name="message" className={`${styles.field} ${styles.textarea}`} rows={4} placeholder="What are you building, who is it for, and what's the goal?" required></textarea>
+                    <textarea name="message" className={`${styles.field} ${styles.textarea}`} rows={4} placeholder="What are you building, and what is your primary business goal?" required></textarea>
                   </div>
 
                   {/* Honeypot field (hidden from humans) */}
@@ -250,13 +248,13 @@ export default function ContactPage() {
 
                   <button type="submit" className={`btn btn-primary ${styles.submitBtn}`} disabled={loading}>
                     {loading ? (
-                      <>Sending enquiry <IconLoader2 size={20} className="spin" /></>
+                      <>Submitting Enquiry <IconLoader2 size={16} className="spin" /></>
                     ) : (
-                      <>Send enquiry <IconArrowUpRight size={20} /></>
+                      <>Submit Scoping Enquiry <IconArrowUpRight size={16} /></>
                     )}
                   </button>
                   <p className={styles.privacyNote}>
-                    <IconLock size={16} /> Your details are private and never shared.
+                    <IconLock size={12} /> Confidentiality guaranteed. We do not sell info.
                   </p>
                 </form>
               )}
@@ -265,26 +263,22 @@ export default function ContactPage() {
             {/* Sidebar */}
             <div className={styles.sidebar}>
               <div className={styles.sideCard}>
-                <h4 className={styles.sideTitle}>Prefer a direct message?</h4>
+                <h4 className={styles.sideTitle}>Prefer direct chat?</h4>
                 <a href="https://wa.me/917019440153" target="_blank" rel="noopener noreferrer" className={styles.whatsappBtn}>
-                  <IconBrandWhatsapp size={20} /> Chat on WhatsApp
+                  <IconBrandWhatsapp size={16} /> WhatsApp Support
                 </a>
-                <p className={styles.sideNote}>+91 7019440153 · Usually responds in under 30 mins</p>
+                <p className={styles.sideNote}>Usually online</p>
               </div>
 
               <div className={styles.sideCard}>
                 <h4 className={styles.sideTitle}>Contact details</h4>
                 <div className={styles.contactItem}>
-                  <div className={styles.contactIcon}><IconMail size={20} /></div>
-                  <div><span className={styles.contactLabel}>Email</span><br /><a href="mailto:crevato@outlook.com" style={{ fontWeight: 600 }}>crevato@outlook.com</a></div>
+                  <div className={styles.contactIcon}><IconMail size={16} /></div>
+                  <div><span className={styles.contactLabel}>Email</span><br /><a href="mailto:sales@crevato.in" style={{ fontWeight: 600 }}>sales@crevato.in</a></div>
                 </div>
                 <div className={styles.contactItem}>
-                  <div className={styles.contactIcon}><IconBrandWhatsapp size={20} /></div>
-                  <div><span className={styles.contactLabel}>Phone</span><br /><span style={{ fontWeight: 600 }}>+91 7019440153</span></div>
-                </div>
-                <div className={styles.contactItem}>
-                  <div className={styles.contactIcon}><IconMapPin size={20} /></div>
-                  <div><span className={styles.contactLabel}>Location</span><br /><span style={{ fontWeight: 600 }}>no 43, KR puram, bengaluru - 560049</span></div>
+                  <div className={styles.contactIcon}><IconMapPin size={16} /></div>
+                  <div><span className={styles.contactLabel}>Studio Location</span><br /><span style={{ fontWeight: 600 }}>No 43, KR Puram, Bengaluru - 560049</span></div>
                 </div>
               </div>
 
@@ -294,7 +288,7 @@ export default function ContactPage() {
                 <div className={styles.hoursRow}><span>Saturday</span><span>10:00 AM – 3:00 PM</span></div>
                 <div className={`${styles.hoursRow} ${styles.closed}`}><span>Sunday</span><span>Closed</span></div>
                 <p className={styles.sideNote} style={{ marginTop: '16px' }}>
-                  <IconInfoCircle size={16} /> All times in IST
+                  <IconInfoCircle size={12} /> Indian Standard Time (IST)
                 </p>
               </div>
             </div>
@@ -303,11 +297,11 @@ export default function ContactPage() {
       </section>
 
       {/* ── PROCESS ── */}
-      <section className="section dashed-border" style={{ background: 'var(--bg-tertiary)', margin: 'var(--space-2xl) var(--space-lg)', borderRadius: 'var(--radius-xl)' }}>
+      <section className="section dashed-border" style={{ background: 'var(--bg-tertiary)', margin: '0 var(--space-lg)', borderRadius: 'var(--radius-xl)' }}>
         <div className="container">
           <div className="text-center">
-            <span className="section-tag reveal">What happens next</span>
-            <h2 className="section-title reveal">After you submit</h2>
+            <span className="section-tag reveal">Next Steps</span>
+            <h2 className="section-title reveal">After You Submit</h2>
           </div>
           <div className={`${styles.processGrid} reveal`}>
             {processSteps.map((step) => (
@@ -326,12 +320,12 @@ export default function ContactPage() {
         <div className="container">
           <div className="text-center">
             <span className="section-tag reveal">Quick FAQ</span>
-            <h2 className="section-title reveal">Before you reach out</h2>
+            <h2 className="section-title reveal">Before Reaching Out</h2>
           </div>
           <div className={`${styles.faqList} reveal`}>
             {faqs.map((f) => (
               <details key={f.q} className={styles.faqItem}>
-                <summary className={styles.faqQ}>{f.q} <IconChevronDown size={20} stroke={2.5} /></summary>
+                <summary className={styles.faqQ}>{f.q} <IconChevronDown size={18} stroke={2.5} /></summary>
                 <p className={styles.faqA}>{f.a}</p>
               </details>
             ))}

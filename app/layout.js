@@ -4,20 +4,20 @@ import Footer from '../components/Footer';
 import WhatsAppFAB from '../components/WhatsAppFAB';
 
 export const metadata = {
-  title: 'Crevato — Digital Agency in Bengaluru | Web, App, UI/UX & Branding',
-  description: 'We build digital products that grow your business. Web design, mobile apps, UI/UX & branding — everything your brand needs to stand out online. Based in Bengaluru, working worldwide.',
-  keywords: 'web design Bengaluru, mobile app development India, UI/UX design, logo design, digital agency, website maintenance, social media management',
+  title: 'Crevato — Premium Ecommerce & Fintech UX Design Agency',
+  description: 'Crevato is a premium digital product design studio powered by AVAQON. We design high-conversion ecommerce interfaces, secure fintech apps, and enterprise SaaS platforms.',
+  keywords: 'ecommerce product design agency india, ecommerce ux agency india, fintech ux agency india, saas product design agency, enterprise ux consultancy, ux design studio bengaluru, ai product ux design, angular product design, flutter product design',
   openGraph: {
-    title: 'Crevato — Digital Agency in Bengaluru',
-    description: 'Web design, mobile apps, UI/UX & branding for growing businesses.',
+    title: 'Crevato — Premium Ecommerce & Fintech UX Design Agency',
+    description: 'We design high-conversion ecommerce interfaces, secure fintech apps, and enterprise SaaS platforms.',
     type: 'website',
     locale: 'en_IN',
     siteName: 'Crevato',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Crevato — Digital Agency in Bengaluru',
-    description: 'Web design, mobile apps, UI/UX & branding for growing businesses.',
+    title: 'Crevato — Premium Ecommerce & Fintech UX Design Agency',
+    description: 'We design high-conversion ecommerce interfaces, secure fintech apps, and enterprise SaaS platforms.',
   },
 };
 

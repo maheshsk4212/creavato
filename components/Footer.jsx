@@ -3,25 +3,23 @@ import {
   IconBrandInstagram,
   IconBrandLinkedin,
   IconBrandWhatsapp,
-  IconBrandBehance,
   IconArrowUpRight,
 } from '@tabler/icons-react';
 import styles from './Footer.module.css';
 
 const services = [
-  { label: 'UX Research & Audit', href: '/services#ux-audit' },
+  { label: 'E-commerce App Design', href: '/services#ecommerce-design' },
   { label: 'Fintech Product Design', href: '/services#fintech-design' },
-  { label: 'Ecommerce Product Design', href: '/services#ecommerce-design' },
-  { label: 'Design Systems', href: '/services#design-systems' },
-  { label: 'Frontend Engineering', href: '/services#frontend' },
-  { label: 'Product Strategy', href: '/services#strategy' },
+  { label: 'SaaS UX/UI Design', href: '/services#saas-design' },
+  { label: 'Enterprise UX Modernization', href: '/services#enterprise-modernization' },
+  { label: 'Design Systems Creation', href: '/services#design-systems' },
+  { label: 'Website Maintenance Support', href: '/services#website-maintenance' },
 ];
 
 const company = [
   { label: 'About Us', href: '/about' },
   { label: 'Portfolio', href: '/portfolio' },
   { label: 'Contact', href: '/contact' },
-  { label: 'Privacy Policy', href: '/privacy-policy' },
 ];
 
 export default function Footer() {
@@ -35,27 +33,24 @@ export default function Footer() {
               <img src="/logo.png" alt="Crevato Logo" className={styles.logoImg} />
             </Link>
             <p className={styles.brandDesc}>
-              Building digital products for growing businesses. Based in Bengaluru, India — working worldwide.
+              Crevato is a premium digital product studio powered by AVAQON (est. 2018). Based in Bengaluru, India — serving transaction-focused clients globally.
             </p>
             <div className={styles.socials}>
-              <a href="https://instagram.com/crevato" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="Instagram">
-                <IconBrandInstagram size={20} />
-              </a>
               <a href="https://www.linkedin.com/company/122154262/" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="LinkedIn">
-                <IconBrandLinkedin size={20} />
+                <IconBrandLinkedin size={18} />
               </a>
               <a href="https://wa.me/917019440153" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="WhatsApp">
-                <IconBrandWhatsapp size={20} />
+                <IconBrandWhatsapp size={18} />
               </a>
-              <a href="https://behance.net/crevato" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="Behance">
-                <IconBrandBehance size={20} />
+              <a href="https://instagram.com/crevato" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="Instagram">
+                <IconBrandInstagram size={18} />
               </a>
             </div>
           </div>
 
           {/* Services Column */}
           <div className={styles.linkCol}>
-            <h4 className={styles.colTitle}>Services</h4>
+            <h4 className={styles.colTitle}>Capabilities</h4>
             <div className={styles.linkList}>
               {services.map((s) => (
                 <Link key={s.href} href={s.href} className={styles.footerLink}>
@@ -81,28 +76,28 @@ export default function Footer() {
           <div className={styles.linkCol}>
             <h4 className={styles.colTitle}>Get in Touch</h4>
             <div className={styles.linkList}>
-              <a href="mailto:crevato@outlook.com" className={styles.footerLink}>
-                crevato@outlook.com
+              <a href="mailto:sales@crevato.in" className={styles.footerLink}>
+                sales@crevato.in
               </a>
               <a href="tel:+917019440153" className={styles.footerLink}>
                 +91 7019440153
               </a>
               <span className={styles.footerLink}>
-                no 43, KR puram, bengaluru - 560049
+                No 43, KR Puram, Bengaluru - 560049
               </span>
             </div>
-            <Link href="/contact" className={`btn btn-primary ${styles.footerCta}`}>
-              Book Discovery Call <IconArrowUpRight size={16} />
+            <Link href="/contact" className={`btn btn-primary ${styles.footerCta}`} style={{ marginTop: 'var(--space-md)' }}>
+              Book Discovery Call <IconArrowUpRight size={14} />
             </Link>
           </div>
         </div>
 
         <div className={styles.bottom}>
           <p className={styles.copyright}>
-            © {new Date().getFullYear()} Crevato. All rights reserved.
+            © {new Date().getFullYear()} Crevato. All rights reserved. Powered by AVAQON.
           </p>
           <p className={styles.credit}>
-            Designed & built with ♥ in Bengaluru
+            Designed & built in Bengaluru
           </p>
         </div>
       </div>

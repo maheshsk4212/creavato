@@ -10,54 +10,48 @@ import {
   IconBrandLinkedin,
   IconBrandInstagram,
   IconBrandGithub,
-  IconBrandDribbble,
-  IconBrandBehance,
   IconBrandFigma,
   IconBrandReact,
-  IconBrandNodejs,
-  IconBrandWordpress,
+  IconBrandAngular,
+  IconBrandFlutter,
+  IconCode,
   IconDeviceMobile,
-  IconDatabase,
-  IconVector,
-  IconPhoto,
-  IconBrush,
+  IconSettings,
+  IconLayoutGrid,
 } from '@tabler/icons-react';
 import styles from './page.module.css';
 
 const values = [
-  { icon: IconEye, title: 'Transparency', desc: 'No surprise costs. Clear timelines. You always know where your project stands.' },
-  { icon: IconClock, title: 'On-time delivery', desc: 'Deadlines are promises. We plan carefully and flag delays early.' },
-  { icon: IconBulb, title: 'Craft first', desc: "We don't ship work we're not proud of. Quality isn't optional." },
-  { icon: IconHeart, title: 'Long-term thinking', desc: "We build for your growth, not for a quick invoice and exit." },
+  { icon: IconEye, title: 'Transparency', desc: 'No hidden fees. We set clear deliverables and project stages upfront.' },
+  { icon: IconClock, title: 'On-time delivery', desc: 'Deadlines are promises. We sync weekly and keep to tight product launch cycles.' },
+  { icon: IconBulb, title: 'Craft first', desc: 'We deliver high-fidelity layouts and design systems that perform under load.' },
+  { icon: IconHeart, title: 'Long-term thinking', desc: 'We design components and structures that scale as your code base grows.' },
 ];
 
 const team = [
-  { name: 'Mahesh SK', role: 'Founder · Design lead', skills: ['UI/UX', 'Branding'], initials: 'MSK', color: '#378ADD', image: '/team/mahesh.png', links: [IconBrandLinkedin, IconBrandInstagram] },
-  { name: 'Dev Kumar', role: 'Full-stack developer', skills: ['React', 'Node.js'], initials: 'DK', color: '#1D9E75', image: '/team/dev-kumar.png', links: [IconBrandLinkedin, IconBrandGithub] },
-  { name: 'Sneha Rao', role: 'UI/UX designer', skills: ['Figma', 'Prototyping'], initials: 'SR', color: '#BA7517', image: '/team/sneha-rao.png', links: [IconBrandLinkedin, IconBrandDribbble] },
-  { name: 'Arun Pillai', role: 'Graphic designer', skills: ['Illustrator', 'Logo'], initials: 'AP', color: '#D4437A', image: '/team/arun-pillai.png', links: [IconBrandLinkedin, IconBrandBehance] },
+  { name: 'Mahesh SK', role: 'UX/UI Head', skills: ['UI/UX Design', 'Product Strategy', 'Fintech & E-commerce'], initials: 'MSK', color: '#6366f1', links: [{ icon: IconBrandLinkedin, url: 'https://linkedin.com' }] },
+  { name: 'Kaif Kareeme', role: 'Business & Creative Operations', skills: ['MD of AVAQON', 'Studio Operations', 'Creative Business'], initials: 'KK', color: '#8b5cf6', links: [{ icon: IconBrandLinkedin, url: 'https://linkedin.com' }] },
+  { name: 'Dev Kumar', role: 'Senior Frontend Engineer', skills: ['Flutter', 'Angular', 'React UI Integration'], initials: 'DK', color: '#10b981', links: [{ icon: IconBrandLinkedin, url: 'https://linkedin.com' }, { icon: IconBrandGithub, url: 'https://github.com' }] },
 ];
 
 const milestones = [
-  { year: '2022', title: 'Started as a freelance studio', desc: 'First 3 clients. Logo designs and a small WordPress site.' },
-  { year: '2023', title: 'Built the core team', desc: 'Brought on a developer and a UI designer. First mobile app project.' },
-  { year: '2024', title: '20+ projects completed', desc: 'Expanded to e-commerce, SaaS UI and brand identity packages.' },
-  { year: '2025', title: 'Registered as a private limited company', desc: 'Serving clients across Bengaluru, Mumbai and Dubai.' },
+  { year: '2018', title: 'AVAQON Foundation', desc: 'Established creative, branding, and print operations in Bengaluru, serving corporate clients.' },
+  { year: '2022', title: 'Product Arm Scoping', desc: 'Began collaborating on complex SaaS dashboards, checkout funnels, and mobile layouts.' },
+  { year: '2024', title: 'Crevato Incubation', desc: 'Formally launched Crevato as AVAQON\'s premium digital product studio to focus on high-fidelity designs.' },
+  { year: '2026', title: 'Global Product Studio', desc: 'Delivering transaction-focused checkout systems and fintech platforms globally.' },
 ];
 
 const designTools = [
   { icon: IconBrandFigma, name: 'Figma' },
-  { icon: IconVector, name: 'Illustrator' },
-  { icon: IconPhoto, name: 'Photoshop' },
-  { icon: IconBrush, name: 'After Effects' },
+  { icon: IconLayoutGrid, name: 'Design Systems' },
+  { icon: IconSettings, name: 'UI Tokens' },
 ];
 
 const devTools = [
+  { icon: IconBrandAngular, name: 'Angular' },
+  { icon: IconBrandFlutter, name: 'Flutter' },
   { icon: IconBrandReact, name: 'React' },
-  { icon: IconBrandNodejs, name: 'Node.js' },
-  { icon: IconBrandWordpress, name: 'WordPress' },
-  { icon: IconDeviceMobile, name: 'Flutter' },
-  { icon: IconDatabase, name: 'MongoDB' },
+  { icon: IconCode, name: 'HTML / CSS' },
 ];
 
 export default function AboutPage() {
@@ -70,60 +64,68 @@ export default function AboutPage() {
         <div className="container">
           <div className={styles.heroGrid}>
             <div className="reveal">
-              <span className="section-tag">Our story</span>
-               <h1 className="section-title">We&apos;re a specialist studio with <span className="font-hand" style={{ transform: 'rotate(-5deg)' }}>deep</span> product expertise</h1>
-               <p className="section-subtitle">
-                With over a decade of experience in UI/UX leadership, we help fintech and ecommerce teams build digital products that users trust. We care about craft, strategy, and measurable outcomes.
-               </p>
+              <span className="section-tag">Our Story</span>
+              <h1 className="section-title">We are AVAQON&apos;s premium <span className="font-hand">product</span> studio</h1>
+              <p className="section-subtitle">
+                Crevato leverages AVAQON&apos;s operational credibility since 2018. We specialize strictly in transaction-optimized e-commerce and secure fintech product designs.
+              </p>
             </div>
             <div className={`${styles.heroImage} reveal`}>
-              <img src="/team/team-group.png" alt="Crevato Team" className={styles.teamImg} />
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Crevato Team Collaboration" className={styles.teamImg} />
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── FOUNDER STORY ── */}
+      {/* ── FOUNDERS STORY ── */}
       <section className="section">
         <div className="container">
+          <div className="text-center" style={{ marginBottom: 'var(--space-2xl)' }}>
+            <span className="section-tag">Leadership</span>
+            <h2>Studio Leadership</h2>
+          </div>
           <div className={`${styles.founderGrid} reveal`}>
             <div className={styles.founderPhoto}>
               <div className={styles.founderAvatar}>
-                <img src="/team/mahesh.png" alt="Mahesh SK" />
+                <span>MSK</span>
               </div>
               <h4>Mahesh SK</h4>
-              <p className={styles.founderRole}>Founder & Creative Director</p>
+              <p className={styles.founderRole}>UX/UI Head</p>
               <div className={styles.founderSocials}>
-                <a href="https://linkedin.com/in/mahesh" className={styles.socialLink}><IconBrandLinkedin size={20} /></a>
-                <a href="https://instagram.com/mahesh" className={styles.socialLink}><IconBrandInstagram size={20} /></a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+                  <IconBrandLinkedin size={18} />
+                </a>
               </div>
             </div>
             <div className={styles.founderStory}>
-              <p>Hi, I&apos;m Mahesh SK. I founded Crevato after a decade of leading UI/UX for complex fintech products and enterprise platforms. I saw a gap in the market: most agencies were too broad, and most freelancers lacked the execution depth for high-stakes products.</p>
-              <p>I built this specialist studio to fix that — providing high-growth teams with the strategic design and frontend execution quality typically reserved for Tier-1 global studios.</p>
+              <p>
+                Hi, I&apos;m Mahesh SK. I lead the UX/UI and product design efforts at Crevato. With over a decade of experience designing and optimizing digital transaction interfaces, I founded Crevato to build high-stakes fintech and e-commerce designs.
+              </p>
+              <p>
+                We focus on reducing checkout drop-offs and simplifying user pathways in complex SaaS and wealthtech systems. We don&apos;t just deliver Figma templates; we coordinate closely with engineers to ensure pixel-perfect delivery in Angular and Flutter.
+              </p>
               <blockquote className={styles.quote}>
-                <p>&ldquo;In fintech and ecommerce, design is more than just visuals. It&apos;s about building trust and reducing friction at the most critical points of the user journey.&rdquo;</p>
-                <cite>— Mahesh SK, Founder & Studio Lead</cite>
+                <p>&ldquo;In digital products, layout strategy directly impacts revenue. We map every screen to build user trust and maximize checkout conversions.&rdquo;</p>
+                <cite>— Mahesh SK, UX/UI Head</cite>
               </blockquote>
-              <p>Based in Bengaluru, we operate as a specialist collective. We don&apos;t just deliver Figma files; we deliver product strategy and production-ready frontend code that performs.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* ── MISSION & VISION ── */}
-      <section className="section dashed-border" style={{ margin: 'var(--space-2xl) var(--space-lg)', borderRadius: 'var(--radius-xl)', background: 'var(--bg-tertiary)' }}>
+      <section className="section" style={{ margin: '0 var(--space-lg)', borderRadius: 'var(--radius-xl)', background: 'var(--bg-tertiary)' }}>
         <div className="container">
           <div className={`grid-2 reveal`}>
             <div className={styles.mvCard}>
               <div className={styles.mvLabel}>OUR MISSION</div>
-              <h3 className={styles.mvTitle}>Make great digital design accessible to every growing business</h3>
-              <p>Not just for big corporates with big budgets — but for the founder working out of a co-working space in KR Puram.</p>
+              <h3 className={styles.mvTitle}>Accelerating conversions for E-commerce & Fintech products</h3>
+              <p>To design scalable, secure, and user-centric interfaces that directly translate to higher client revenue and frictionless transactions.</p>
             </div>
             <div className={styles.mvCard}>
               <div className={styles.mvLabel}>OUR VISION</div>
-              <h3 className={styles.mvTitle}>To be the most trusted digital partner for 500+ businesses by 2028</h3>
-              <p>Growing from Bengaluru into a studio with a reputation for work that actually converts.</p>
+              <h3 className={styles.mvTitle}>To be India&apos;s leading transaction UI design studio</h3>
+              <p>Backed by AVAQON&apos;s operational strength, we aim to be the go-to studio for high-growth SaaS, Flutter, and Angular projects.</p>
             </div>
           </div>
         </div>
@@ -132,13 +134,13 @@ export default function AboutPage() {
       {/* ── VALUES ── */}
       <section className="section">
         <div className="container text-center">
-          <span className="section-tag reveal">What drives us</span>
-          <h2 className="section-title reveal">Our values</h2>
+          <span className="section-tag reveal">How we work</span>
+          <h2 className="section-title reveal">Studio Values</h2>
           <div className={`grid-4 reveal`} style={{ marginTop: 'var(--space-3xl)' }}>
             {values.map((v) => (
               <div key={v.title} className={styles.valCard}>
                 <div className={styles.valIconWrap}>
-                  <v.icon size={28} />
+                  <v.icon size={20} />
                 </div>
                 <h4 className={styles.valTitle}>{v.title}</h4>
                 <p className={styles.valDesc}>{v.desc}</p>
@@ -149,16 +151,16 @@ export default function AboutPage() {
       </section>
 
       {/* ── TEAM ── */}
-      <section className="section dotted-bg" style={{ borderTop: '2px solid var(--border-primary)', borderBottom: '2px solid var(--border-primary)' }}>
+      <section className="section dotted-bg" style={{ borderTop: '1px solid var(--border-primary)', borderBottom: '1px solid var(--border-primary)' }}>
         <div className="container text-center">
-          <span className="section-tag reveal">The people</span>
-          <h2 className="section-title reveal">Meet the team</h2>
-          <div className={`grid-4 reveal`} style={{ marginTop: 'var(--space-3xl)' }}>
+          <span className="section-tag reveal">The Specialists</span>
+          <h2 className="section-title reveal">Meet the Team</h2>
+          <div className={`grid-3 reveal`} style={{ marginTop: 'var(--space-3xl)', justifyItems: 'center' }}>
             {team.map((t) => (
-              <div key={t.name} className={styles.teamCard}>
+              <div key={t.name} className={styles.teamCard} style={{ width: '100%', maxWidth: '340px' }}>
                 <div className={styles.teamPhoto}>
                   <div className={styles.teamAvatar} style={{ background: t.color }}>
-                    {t.image ? <img src={t.image} alt={`${t.name} - ${t.role} at Crevato`} /> : t.initials}
+                    {t.initials}
                   </div>
                 </div>
                 <div className={styles.teamInfo}>
@@ -168,7 +170,11 @@ export default function AboutPage() {
                     {t.skills.map((s) => <span key={s} className={styles.skillTag}>{s}</span>)}
                   </div>
                   <div className={styles.teamLinks}>
-                    {t.links.map((Icon, i) => <Icon key={i} size={20} stroke={2} />)}
+                    {t.links.map((link, i) => (
+                      <a key={i} href={link.url} target="_blank" rel="noopener noreferrer">
+                        <link.icon size={18} />
+                      </a>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -181,7 +187,7 @@ export default function AboutPage() {
       <section className="section">
         <div className="container">
           <div className="text-center">
-            <span className="section-tag reveal">Our journey</span>
+            <span className="section-tag reveal">Studio Evolution</span>
             <h2 className="section-title reveal">Milestones</h2>
           </div>
           <div className={`${styles.timeline} reveal`}>
@@ -201,49 +207,30 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── STATS ── */}
-      <section className="section-sm">
-        <div className="container">
-          <div className={`${styles.statsGrid} reveal`}>
-            {[
-              { n: '50+', l: 'Projects delivered' },
-              { n: '30+', l: 'Happy clients' },
-              { n: '5', l: 'Industries served' },
-              { n: '4.9★', l: 'Average rating' },
-            ].map((s) => (
-              <div key={s.l} className={styles.statCard}>
-                <div className={styles.statNum}>{s.n}</div>
-                <div className={styles.statLabel}>{s.l}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── TOOLS ── */}
-      <section className="section">
+      <section className="section" style={{ borderTop: '1px solid var(--border-primary)' }}>
         <div className="container">
           <div className="text-center">
-            <span className="section-tag reveal">Our toolkit</span>
-            <h2 className="section-title reveal">Tools & technologies</h2>
+            <span className="section-tag reveal">Studio Stack</span>
+            <h2 className="section-title reveal">Tools & Technologies</h2>
           </div>
           <div className={`${styles.toolsSection} reveal`}>
             <div className={styles.toolGroup}>
-              <h4 className={styles.toolGroupTitle}>Design</h4>
+              <h4 className={styles.toolGroupTitle}>Design Systems & Tokens</h4>
               <div className={styles.toolWrap}>
                 {designTools.map((t) => (
                   <div key={t.name} className={styles.toolChip}>
-                    <t.icon size={20} /> {t.name}
+                    <t.icon size={16} /> {t.name}
                   </div>
                 ))}
               </div>
             </div>
             <div className={styles.toolGroup}>
-              <h4 className={styles.toolGroupTitle}>Development</h4>
+              <h4 className={styles.toolGroupTitle}>Engineering Handoff</h4>
               <div className={styles.toolWrap}>
                 {devTools.map((t) => (
                   <div key={t.name} className={styles.toolChip}>
-                    <t.icon size={20} /> {t.name}
+                    <t.icon size={16} /> {t.name}
                   </div>
                 ))}
               </div>
@@ -253,15 +240,15 @@ export default function AboutPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="section">
+      <section className="section" style={{ borderTop: '1px solid var(--border-primary)' }}>
         <div className="container text-center">
-          <h2 className="section-title reveal">Like what you see? Let&apos;s build something together.</h2>
-          <p className="section-subtitle centered reveal">We&apos;d love to hear about your project — big or small.</p>
+          <h2 className="section-title reveal">Ready to work with a dedicated product studio?</h2>
+          <p className="section-subtitle centered reveal">We collaborate under NDA to scale conversions and build trust.</p>
           <div className={`btn-row centered reveal`} style={{ marginTop: 'var(--space-xl)' }}>
             <Link href="/contact" className="btn btn-primary btn-lg">
-              Start a project <IconArrowUpRight size={18} />
+              Book Discovery Call <IconArrowUpRight size={18} />
             </Link>
-            <Link href="/portfolio" className="btn btn-ghost btn-lg">View our work</Link>
+            <Link href="/portfolio" className="btn btn-ghost btn-lg">View Case Studies</Link>
           </div>
         </div>
       </section>

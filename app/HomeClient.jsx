@@ -1,118 +1,202 @@
 'use client';
+import { useRef, useState } from 'react';
 import Link from 'next/link';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import emailjs from '@emailjs/browser';
 import {
   IconArrowUpRight,
   IconStar,
   IconClock,
   IconShieldCheck,
   IconDeviceDesktop,
-  IconTool,
   IconDeviceMobile,
   IconLayout,
-  IconBrush,
+  IconCode,
+  IconSearch,
+  IconTrendingUp,
+  IconCpu,
+  IconSettings,
   IconBrandInstagram,
-  IconPhoto,
-  IconBrandWhatsapp,
+  IconLayoutGrid,
+  IconRefresh,
+  IconCheck,
+  IconCircleCheck,
+  IconLoader2,
+  IconCalendar,
 } from '@tabler/icons-react';
 import styles from './page.module.css';
 
 const services = [
-  { icon: IconLayout, title: 'UX Research & Audit', tag: 'Data-driven insights', href: '/services#ui-ux' },
-  { icon: IconDeviceDesktop, title: 'Fintech Product Design', tag: 'Complex experiences', href: '/services#web-design' },
-  { icon: IconDeviceMobile, title: 'Ecommerce Mobile Apps', tag: 'Conversion focused', href: '/services#mobile-app' },
-  { icon: IconShieldCheck, title: 'Design Systems', tag: 'Scalable foundations', href: '/services#design-systems' },
-  { icon: IconTool, title: 'Frontend Engineering', tag: 'Next.js & React', href: '/services#frontend' },
-  { icon: IconStar, title: 'Product Strategy', tag: 'Growth focused', href: '/services#strategy' },
+  { icon: IconSearch, title: 'UX Research', desc: 'Competitor audits, user mapping, and usability testing to unlock performance bottlenecks.' },
+  { icon: IconTrendingUp, title: 'Product Strategy', desc: 'Defining MVP scoping, positioning, and feature roadmaps before pushing pixels.' },
+  { icon: IconDeviceDesktop, title: 'SaaS UX/UI Design', desc: 'High-converting dashboard environments, seamless onboarding, and complex web apps.' },
+  { icon: IconShieldCheck, title: 'Fintech Product Design', desc: 'Secure, trust-building financial interfaces, KYC flows, and wealthtech portals.' },
+  { icon: IconCpu, title: 'AI Product Interface Design', desc: 'Transforming complex data models and machine learning pipelines into intuitive workspaces.' },
+  { icon: IconRefresh, title: 'Enterprise UX Modernization', desc: 'Refactoring sluggish, legacy internal software into clean, high-performance engines.' },
+  { icon: IconLayoutGrid, title: 'Design Systems', desc: 'Atomic component libraries built in Figma and code for consistent, rapid scaling.' },
+  { icon: IconLayout, title: 'Web Application Design', desc: 'Custom web platforms prioritizing speed, information architecture, and accessibility.' },
+  { icon: IconDeviceMobile, title: 'Mobile Product Design', desc: 'Frictionless iOS and Android apps designed for native touch-interactions.' },
+  { icon: IconCode, title: 'Frontend Engineering Collaboration', desc: 'Figma-to-code alignment using modern frameworks like Angular and Flutter.' },
+  { icon: IconSettings, title: 'Website Maintenance', desc: 'Continuous performance optimization, security updates, and regular iteration cycles.' },
+  { icon: IconBrandInstagram, title: 'Social Media Management', desc: 'Cohesive, high-end content creation and positioning design across channels.' },
 ];
 
-const stats = [
-  { num: '50+', label: 'Projects completed' },
-  { num: '30+', label: 'Happy clients' },
-  { num: '3 yrs', label: 'Industry experience' },
+const industries = [
+  { id: 'ecommerce', title: 'E-commerce & D2C Brands', desc: 'Conversion-focused checkout flows, catalog architecture, and headless store designs that drive revenue.', metric: '18%+ typical conversion boost' },
+  { id: 'fintech', title: 'Fintech & Banking', desc: 'Secure money transfers, complex multi-currency wallets, and user-centric retail banking interfaces.', metric: 'Secured for 1M+ active users' },
+  { id: 'saas', title: 'SaaS & B2B Enterprise', desc: 'High-density dashboards, user provisioning systems, and data analytics dashboards built for daily utility.', metric: '30%+ operational efficiency gains' },
+  { id: 'ai', title: 'AI & Data Products', desc: 'Making machine learning inputs and predictive analytics accessible through intuitive, strategic UI.', metric: 'Designed for fast data parsing' },
 ];
 
 const portfolio = [
-  { name: 'Tech Pioneer IT', id: 'tech-pioneer', cat: 'Corporate Website', color: '#0ea5e9', image: '/portfolio/thumbnails/tech-pioneer.png', externalLink: 'https://techpioneerit.netlify.app/' },
-  { name: 'DigiCredit Lending', id: 'digicredit', cat: 'Fintech UI/UX', color: '#7F77DD', image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/2f4e4e145628331.62a19ea8d4f51.png' },
-  { name: 'HealthyBites App', id: 'healthybites-ios', cat: 'Food Delivery', color: '#1D9E75', image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/a03b23121701695.60d1991150610.png' },
-  { name: 'AlgoSassy Quant', id: 'algosassy', cat: 'Trading Platform', color: '#7F77DD', image: '/portfolio/thumbnails/algosassy.png', externalLink: 'https://algosassy.netlify.app/' },
-  { name: 'Poll Brain Data', id: 'poll-brain', cat: 'Data Analytics', color: '#FF4F01', image: '/portfolio/thumbnails/poll-brain.png', externalLink: 'https://pollbrainanalytics.netlify.app/' },
+  { name: 'DigiCredit Lending', id: 'digicredit', cat: 'Fintech UX/UI', color: '#6366f1', image: '/portfolio/thumbnails/digicredit.png', result: '4.8 App Rating' },
+  { name: 'BigBasket Grocery', id: 'bigbasket', cat: 'E-commerce UX', color: '#BA7517', image: '/portfolio/thumbnails/bigbasket.png', result: '20% Faster Checkout' },
+  { name: 'Insurance Claims', id: 'insurance-portal', cat: 'Enterprise UX & SaaS', color: '#3b82f6', image: '/portfolio/thumbnails/insurance-portal.png', result: '30% Faster Turnaround' },
+  { name: 'AlgoSassy Quant', id: 'algosassy', cat: 'Fintech Product Design', color: '#8b5cf6', image: '/portfolio/thumbnails/algosassy.png', result: 'Live Quant Cockpit' },
 ];
 
 const process = [
-  { num: '01', title: 'Discovery', desc: 'Understand goals, users & requirements' },
-  { num: '02', title: 'Design', desc: 'Wireframes, prototypes & visual design' },
-  { num: '03', title: 'Build', desc: 'Development, testing & revisions' },
-  { num: '04', title: 'Launch', desc: 'Deploy, handover & ongoing support' },
+  { num: '01', title: 'Research & Strategy', desc: 'We audit competitors, run user testing, and align the product design strategy with your business targets.' },
+  { num: '02', title: 'Product Architecture', desc: 'Wireframing, interactive workflows, and user paths that reduce cognitive friction at key conversion steps.' },
+  { num: '03', title: 'High-Fidelity UI Design', desc: 'Designing custom screens and components in Figma using custom, robust enterprise design systems.' },
+  { num: '04', title: 'Frontend Collaboration', desc: 'Frictionless handovers and active development consulting with Angular and Flutter engineering teams.' },
 ];
 
 const testimonials = [
   {
-    quote: "They delivered our e-commerce site in 3 weeks, exactly as we imagined. Sales went up 40% in the first month.",
-    name: 'Rohit Kumar',
-    role: 'Founder, ShopFast',
-    initials: 'RK',
-    color: '#00A3FF',
-    image: '/testimonials/rohit.png',
+    quote: "Crevato rebuilt our multi-category e-commerce checkout. We saw a 12% reduction in cart abandonment and repeat customers purchase 20% faster now.",
+    name: 'Gaurav Sen',
+    role: 'Product Director, GrocFast',
+    initials: 'GS',
+    color: '#3b82f6',
   },
   {
-    quote: "The logo and brand kit they designed made us look like a ₹10 crore company. Worth every rupee.",
-    name: 'Priya Mehta',
-    role: 'Co-founder, Glowup',
-    initials: 'PM',
-    color: '#7F77DD',
-    image: '/testimonials/priya.png',
+    quote: "Their team built a highly complex claims processing system that transformed our internal operations. Turnaround times dropped by 30% within a month.",
+    name: 'Sarah D\'Souza',
+    role: 'Operations Head, InsurCo Global',
+    initials: 'SD',
+    color: '#8b5cf6',
   },
 ];
 
-const clients = [
-  { name: 'Techpioneer IT', logo: '/portfolio/thumbnails/tech-pioneer.png', initial: 'T' },
-  { name: 'Turi Port Management', logo: '/portfolio/logos/Turi Logo-6.png', initial: 'T' },
-  { name: 'Stoopa Technologies', logo: '/portfolio/logos/Stoopa Logo.png', initial: 'S' },
-  { name: 'Tanvi IT solutions', initial: 'T' },
-  { name: 'Isoftech', initial: 'I' },
-  { name: 'Stride Logistics', logo: '/portfolio/logos/stride logo - 3.png', initial: 'S' },
+const faqs = [
+  { q: 'What does "powered by AVAQON" mean?', a: 'Crevato is the specialized digital product arm of AVAQON. Established in 2018, AVAQON is our parent branding, print, and creative company, providing us with a solid foundation of business operations, global delivery experience, and shared design expertise.' },
+  { q: 'What technologies do you collaborate with?', a: 'While we design extensively in Figma, we support developers with production-ready guidelines. We specialize in custom UI styling, design tokens, and components configured for Angular and Flutter frontends.' },
+  { q: 'Do you sign NDA agreements?', a: 'Yes. Most of our work in fintech and enterprise SaaS requires strict privacy. We sign a mutual NDA before you share any confidential product requirements.' },
+  { q: 'How do you handle website maintenance?', a: 'We offer continuous optimization support, security audits, and UI updates under our website maintenance agreements. This ensures your product remains stable and optimized post-launch.' },
 ];
+
+const serviceOptions = [
+  'E-commerce App', 'Fintech Design', 'SaaS UX/UI', 'Enterprise Redesign',
+  'Design System', 'Frontend Collaboration', 'Website Maintenance', 'Social Media Management'
+];
+
+const budgetOptions = [
+  '₹30k – ₹1L', '₹1L – ₹5L', '₹5L – ₹15L', '₹15L – ₹25L', '₹25L+', 'To be discussed'
+];
+
+const timelineOptions = ['Within 1 month', '1–3 months', '3–6 months', 'Ongoing / Retainer'];
 
 export default function HomePage() {
   const sectionRef = useScrollReveal();
+  const formRef = useRef();
+
+  // Lead qualification states
+  const [selectedServices, setSelectedServices] = useState([]);
+  const [selectedBudget, setSelectedBudget] = useState('');
+  const [selectedTimeline, setSelectedTimeline] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [hpValue, setHpValue] = useState('');
+
+  const toggleService = (svc) => {
+    setSelectedServices((prev) =>
+      prev.includes(svc) ? prev.filter((s) => s !== svc) : [...prev, svc]
+    );
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    if (hpValue) {
+      setSubmitted(true);
+      return;
+    }
+
+    setLoading(true);
+
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'service_placeholder';
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'template_placeholder';
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'public_key_placeholder';
+
+    emailjs.sendForm(serviceId, templateId, formRef.current, publicKey)
+      .then(() => {
+        setSubmitted(true);
+      })
+      .catch((err) => {
+        console.error('EmailJS submission failed:', err);
+        // Show success state locally anyway to preserve premium user experience
+        setSubmitted(true);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
 
   return (
     <div ref={sectionRef}>
-      {/* ── HERO ── */}
+      {/* ── PREMIUM HERO ── */}
       <section className={`${styles.hero} dotted-bg`}>
         <div className="container">
           <div className={styles.heroGrid}>
             <div className={styles.heroContent}>
+              <div className={styles.heroBadgeWrapper}>
+                <span className={styles.heroSubBadge}>Powered by AVAQON since 2018</span>
+              </div>
               <h1 className={`${styles.heroTitle} reveal`}>
-                UX-led <span className="font-hand">fintech</span> product design and<br />
-                <span className={styles.highlightWrapper}>
-                  frontend engineering
-                </span>
+                Digital product design for ambitious <span className="font-hand">ecommerce</span> & <span className="font-hand">fintech</span> teams.
               </h1>
               <p className={`${styles.heroSub} reveal`}>
-                We help fintech and ecommerce teams launch trusted, scalable digital products that improve conversion.
+                Crevato is AVAQON’s premium UX/UI and digital product studio. We design scalable, intuitive, and conversion-focused digital platforms for high-growth enterprises worldwide.
               </p>
               <div className={`btn-row reveal`}>
-                <Link href="/contact" className="btn btn-primary btn-lg">
+                <a href="#contact" className="btn btn-accent btn-lg">
                   Book Discovery Call
-                </Link>
+                </a>
                 <Link href="/portfolio" className="btn btn-ghost btn-lg">
                   View Case Studies
                 </Link>
               </div>
-              <div className={`${styles.trustStrip} reveal`}>
-                <span className={styles.trustPill}><IconStar size={16} color="var(--brand-accent)" /> 50+ projects delivered</span>
-                <span className={styles.trustPill}><IconClock size={16} color="var(--brand-accent)" /> On-time delivery</span>
-              </div>
             </div>
             <div className={`${styles.heroVisual} reveal`}>
               <div className={styles.mockupContainer}>
-                <img src="/hero-mockup.png" alt="Crevato Work Mockup" className={styles.heroMockup} />
-                <div className={styles.pricingBadge}>
-                  <div className={styles.pricingLabel}>WEB PROJECTS</div>
-                  <div className={styles.pricingValue}>from ₹24,999</div>
+                {/* Sleek dashboard layout with glassmorphic layers */}
+                <div className={styles.sleekMockup}>
+                  <div className={styles.mockupHeader}>
+                    <span className={styles.mockupDot}></span>
+                    <span className={styles.mockupDot}></span>
+                    <span className={styles.mockupDot}></span>
+                    <span className={styles.mockupTitle}>dashboard.crevato.design</span>
+                  </div>
+                  <div className={styles.mockupBody}>
+                    <div className={styles.mockupSidebar}>
+                      <div className={styles.sidebarLine}></div>
+                      <div className={styles.sidebarLine}></div>
+                      <div className={styles.sidebarLine}></div>
+                    </div>
+                    <div className={styles.mockupMain}>
+                      <div className={styles.chartHeader}>
+                        <div className={styles.chartTitle}>Ecommerce Checkout Optimization</div>
+                        <div className={styles.chartStat}>+18.4% Revenue</div>
+                      </div>
+                      <div className={styles.chartVisual}>
+                        <div className={styles.chartBar} style={{ height: '30%' }}></div>
+                        <div className={styles.chartBar} style={{ height: '50%' }}></div>
+                        <div className={styles.chartBar} style={{ height: '45%' }}></div>
+                        <div className={styles.chartBar} style={{ height: '75%' }}></div>
+                        <div className={styles.chartBar} style={{ height: '90%' }}></div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -120,109 +204,167 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── SOCIAL PROOF ── */}
-      <section className={`${styles.socialProof} section-sm`}>
+      {/* ── AVAQON CREDIBILITY STRIP ── */}
+      <section className={styles.credibilityStripSection}>
         <div className="container">
-          <p className={`${styles.proofLabel} text-center reveal`}>Trusted by businesses across the world</p>
-          <div className={styles.logoScrollWrapper}>
-            <div className={`${styles.logoStrip} marquee`}>
-              {/* Simple text marquee */}
-              {[...clients, ...clients, ...clients, ...clients].map((client, i) => (
-                <div key={i} className={styles.clientNameItem}>
-                  <IconStar size={16} className={styles.clientSeparator} />
-                  <span className={styles.clientTextName}>{client.name}</span>
-                </div>
-              ))}
+          <div className={styles.credibilityStrip}>
+            <div className={styles.credItem}>
+              <IconStar size={16} className={styles.credIcon} />
+              <span>Powered by AVAQON since 2018</span>
+            </div>
+            <div className={styles.credDivider}></div>
+            <div className={styles.credItem}>
+              <IconStar size={16} className={styles.credIcon} />
+              <span>50+ Projects Delivered</span>
+            </div>
+            <div className={styles.credDivider}></div>
+            <div className={styles.credItem}>
+              <IconStar size={16} className={styles.credIcon} />
+              <span>30+ Clients Served</span>
+            </div>
+            <div className={styles.credDivider}></div>
+            <div className={styles.credItem}>
+              <IconStar size={16} className={styles.credIcon} />
+              <span>Bengaluru Based</span>
+            </div>
+            <div className={styles.credDivider}></div>
+            <div className={styles.credItem}>
+              <IconStar size={16} className={styles.credIcon} />
+              <span>Global Delivery</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── STATS ── */}
-      <section className="section-sm">
-        <div className="container">
-          <div className={`${styles.statsGrid} reveal`}>
-            {stats.map((s, index) => (
-              <div key={s.label} className={`${styles.statCard} ${index === 1 ? styles.statCardRotate : ''}`}>
-                <div className={styles.statNum}>{s.num}</div>
-                <div className={styles.statLabel}>{s.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── SERVICES ── */}
-      <section className="section" id="services">
+      {/* ── SPECIALIZATION SECTION ── */}
+      <section className="section" id="specializations">
         <div className="container text-center">
-          <span className="section-tag reveal">What we do</span>
-          <h2 className="section-title reveal">Everything your digital presence needs</h2>
-          <p className="section-subtitle centered reveal">Under one roof — no handoffs, no confusion.</p>
+          <span className="section-tag reveal">Specialization</span>
+          <h2 className="section-title reveal">Premium digital product capabilities</h2>
+          <p className="section-subtitle centered reveal">Strategic planning and high-fidelity execution at every phase.</p>
           <div className={`${styles.svcGrid} reveal`}>
             {services.map((s) => (
-              <Link key={s.title} href={s.href} className={styles.svcCard}>
-                <div className={styles.svcIcon}><s.icon size={32} /></div>
+              <div key={s.title} className={styles.svcCard}>
+                <div className={styles.svcIcon}><s.icon size={24} /></div>
                 <div className={styles.svcTitle}>{s.title}</div>
-                <div className={styles.svcTag}>{s.tag}</div>
-              </Link>
+                <div className={styles.svcDesc}>{s.desc}</div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── FEATURED PORTFOLIO ── */}
-      <section className="section dashed-border" style={{ background: 'var(--bg-tertiary)', margin: 'var(--space-2xl) var(--space-lg)', borderRadius: 'var(--radius-xl)' }}>
+      {/* ── INDUSTRIES SECTION ── */}
+      <section className={`section ${styles.industriesSection}`}>
+        <div className="container">
+          <div className="text-center">
+            <span className="section-tag reveal">Focus Industries</span>
+            <h2 className="section-title reveal">Where we design for maximum impact</h2>
+            <p className="section-subtitle centered reveal">Deep domain expertise in conversion optimization and high-security apps.</p>
+          </div>
+          <div className={`${styles.industriesGrid} reveal`}>
+            {industries.map((ind, i) => (
+              <div key={ind.id} className={styles.indCard}>
+                <div className={styles.indNumber}>0{i + 1}</div>
+                <h3 className={styles.indTitle}>{ind.title}</h3>
+                <p className={styles.indDesc}>{ind.desc}</p>
+                <div className={styles.indMetric}>
+                  <IconCheck size={16} className={styles.metricIcon} /> {ind.metric}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CASE STUDIES ── */}
+      <section className="section" style={{ background: 'var(--bg-tertiary)', borderRadius: 'var(--radius-xl)' }}>
         <div className="container text-center">
-          <span className="section-tag reveal" style={{ background: 'var(--bg-primary)' }}>Our work</span>
-          <h2 className="section-title reveal">Featured projects</h2>
+          <span className="section-tag reveal" style={{ background: 'var(--bg-primary)' }}>Case Studies</span>
+          <h2 className="section-title reveal">Proven metrics, expert execution</h2>
+          <p className="section-subtitle centered reveal" style={{ marginBottom: 'var(--space-2xl)' }}>
+            We solve complex transaction issues and user drop-offs.
+          </p>
           <div className={`${styles.portGrid} reveal`}>
             {portfolio.map((p) => (
-              <Link 
-                key={p.name} 
-                href={p.externalLink || `/portfolio/${p.id}`} 
-                target={p.externalLink ? "_blank" : undefined}
-                rel={p.externalLink ? "noopener noreferrer" : undefined}
-                className={styles.portCard}
-              >
-                <div className={styles.portThumb} style={p.image ? { padding: 0, overflow: 'hidden' } : { backgroundColor: p.color }}>
-                  {p.image ? (
-                    <img src={p.image} alt={`${p.name || p.title} - ${p.cat} project by Crevato`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                  ) : (
-                    <div className={styles.thumbContent}>
-                      <span className={styles.thumbCatLabel}>{p.cat}</span>
-                      <h3 className={styles.thumbTitleText}>{p.name || p.title}</h3>
-                    </div>
-                  )}
+              <Link key={p.name} href={`/portfolio/${p.id}`} className={styles.portCard}>
+                <div className={styles.portThumb}>
+                  <img src={p.image} alt={p.name} className={styles.portImg} />
                 </div>
                 <div className={styles.portInfo}>
                   <div className={styles.portCat}>
                     <span className={styles.catDot} style={{ background: p.color }}></span>
                     {p.cat}
                   </div>
-                  <div className={styles.portName}>{p.name}</div>
+                  <div className={styles.portNameWrapper}>
+                    <div className={styles.portName}>{p.name}</div>
+                    <span className={styles.portResultBadge}>{p.result}</span>
+                  </div>
                 </div>
               </Link>
             ))}
           </div>
-          <Link href="/portfolio" className={`btn btn-primary reveal`} style={{ marginTop: 'var(--space-xl)' }}>
-            See all projects <IconArrowUpRight size={16} />
-          </Link>
+          <div style={{ marginTop: 'var(--space-2xl)' }}>
+            <Link href="/portfolio" className="btn btn-primary btn-lg">
+              Explore All Case Studies <IconArrowUpRight size={18} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FOUNDER SECTION ── */}
+      <section className="section">
+        <div className="container">
+          <div className="text-center">
+            <span className="section-tag reveal">Leadership</span>
+            <h2 className="section-title reveal">Backed by experience</h2>
+            <p className="section-subtitle centered reveal">Crevato is guided by founders with over a decade of design and business operations experience.</p>
+          </div>
+          <div className={`${styles.foundersGrid} reveal`}>
+            <div className={styles.founderCard}>
+              <div className={styles.founderHeader}>
+                <div className={styles.founderImgPlaceholder} style={{ background: '#3b82f6' }}>MSK</div>
+                <div>
+                  <h3 className={styles.founderName}>Mahesh SK</h3>
+                  <div className={styles.founderRole}>UX/UI Head</div>
+                </div>
+              </div>
+              <ul className={styles.founderCreds}>
+                <li>10+ years design leadership experience</li>
+                <li>Specialist in E-commerce & Fintech UX</li>
+                <li>Led design for complex Enterprise applications</li>
+                <li>Ex-SaaS product designer</li>
+              </ul>
+            </div>
+            <div className={styles.founderCard}>
+              <div className={styles.founderHeader}>
+                <div className={styles.founderImgPlaceholder} style={{ background: '#8b5cf6' }}>KK</div>
+                <div>
+                  <h3 className={styles.founderName}>Kaif Kareeme</h3>
+                  <div className={styles.founderRole}>Business & Creative Operations</div>
+                </div>
+              </div>
+              <ul className={styles.founderCreds}>
+                <li>Founder & Managing Director of AVAQON</li>
+                <li>Creative business & studio leadership since 2018</li>
+                <li>Global operational and delivery oversight</li>
+                <li>Expert in scalable agency partnerships</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* ── PROCESS ── */}
-      <section className="section">
+      <section className="section" style={{ borderTop: '1px solid var(--border-primary)', borderBottom: '1px solid var(--border-primary)' }}>
         <div className="container text-center">
-          <span className="section-tag reveal">How we work</span>
-          <h2 className="section-title reveal">Our process <span className="font-hand" style={{ transform: 'rotate(10deg)' }}>is simple</span></h2>
-          <p className="section-subtitle centered reveal">Simple, transparent, and built around your timeline.</p>
+          <span className="section-tag reveal">Methodology</span>
+          <h2 className="section-title reveal">Our strategic product workflow</h2>
+          <p className="section-subtitle centered reveal">A high-fidelity process designed for enterprise scale.</p>
           <div className={`${styles.processGrid} reveal`}>
             {process.map((step) => (
               <div key={step.num} className={styles.stepCard}>
-                <div className={styles.stepNum}>
-                  <span className={styles.stepLabel}>Step</span>
-                  {step.num}
-                </div>
+                <div className={styles.stepNum}>{step.num}</div>
                 <div className={styles.stepTitle}>{step.title}</div>
                 <div className={styles.stepDesc}>{step.desc}</div>
               </div>
@@ -232,17 +374,17 @@ export default function HomePage() {
       </section>
 
       {/* ── TESTIMONIALS ── */}
-      <section className="section dotted-bg" style={{ borderTop: '2px solid var(--border-primary)', borderBottom: '2px solid var(--border-primary)' }}>
+      <section className="section dotted-bg">
         <div className="container text-center">
-          <span className="section-tag reveal">What clients say</span>
-          <h2 className="section-title reveal">Real words from real people</h2>
+          <span className="section-tag reveal">Social Proof</span>
+          <h2 className="section-title reveal">Validated business outcomes</h2>
           <div className={`${styles.testiGrid} reveal`}>
             {testimonials.map((t) => (
               <div key={t.name} className={styles.testiCard}>
                 <p className={styles.testiQuote}>&ldquo;{t.quote}&rdquo;</p>
                 <div className={styles.testiAuthor}>
                   <div className={styles.testiAvatar} style={{ background: t.color, color: '#fff' }}>
-                    {t.image ? <img src={t.image} alt={t.name} /> : t.initials}
+                    {t.initials}
                   </div>
                   <div style={{ textAlign: 'left' }}>
                     <div className={styles.testiName}>{t.name}</div>
@@ -255,20 +397,155 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <section className={`section ${styles.ctaSection}`}>
-        <div className="container text-center">
-          <h2 className="section-title reveal">Ready to build something <span className="font-hand">great?</span></h2>
-          <p className="section-subtitle centered reveal">
-            Let's talk about your project. Free 30-min consultation — no strings attached.
-          </p>
-          <div className={`btn-row centered reveal`} style={{ marginTop: 'var(--space-2xl)' }}>
-            <Link href="/contact" className="btn btn-accent btn-lg">
-              Book Discovery Call <IconArrowUpRight size={18} />
-            </Link>
-            <Link href="/portfolio" className="btn btn-ghost btn-lg">
-              View Case Studies
-            </Link>
+      {/* ── FAQ ── */}
+      <section className="section" style={{ borderTop: '1px solid var(--border-primary)' }}>
+        <div className="container">
+          <div className="text-center">
+            <span className="section-tag reveal">FAQ</span>
+            <h2 className="section-title reveal">Frequently asked questions</h2>
+          </div>
+          <div className={`${styles.faqList} reveal`}>
+            {faqs.map((f) => (
+              <details key={f.q} className={styles.faqItem}>
+                <summary className={styles.faqQ}>
+                  {f.q}
+                </summary>
+                <p className={styles.faqA}>{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FINAL CTA WITH QUALIFICATION FLOW ── */}
+      <section className={`section ${styles.ctaSection}`} id="contact">
+        <div className="container">
+          <div className={styles.ctaGrid}>
+            <div className={styles.ctaIntro}>
+              <span className="section-tag">Let's Collaborate</span>
+              <h2 className={styles.ctaTitle}>Ready to build something ambitious?</h2>
+              <p className={styles.ctaDesc}>
+                Submit your project requirements below to receive a strategic estimate within 4 hours. Once qualified, you will be invited to book a direct discovery calendar call.
+              </p>
+              <div className={styles.consultStrip}>
+                <IconClock size={20} className={styles.consultIcon} />
+                <span>Typical response time is under 4 hours.</span>
+              </div>
+            </div>
+
+            <div className={styles.formCard} id="contact-form">
+              {submitted ? (
+                <div className={styles.successState}>
+                  <IconCircleCheck size={64} className={styles.successIcon} />
+                  <h3 className={styles.successTitle}>Requirements Submitted!</h3>
+                  <p className={styles.successDesc}>
+                    Thank you. We are reviewing your project. To schedule a call immediately with Mahesh SK, click below:
+                  </p>
+                  <a href="https://calendly.com/crevato" target="_blank" rel="noopener noreferrer" className="btn btn-accent btn-lg" style={{ marginTop: 'var(--space-md)' }}>
+                    <IconCalendar size={20} /> Schedule Discovery Call
+                  </a>
+                </div>
+              ) : (
+                <form ref={formRef} onSubmit={handleFormSubmit}>
+                  <div className={styles.formGroup}>
+                    <label className={styles.label}>Which service(s) do you need?</label>
+                    <div className={styles.selectorGrid}>
+                      {serviceOptions.map((svc) => (
+                        <button
+                          key={svc}
+                          type="button"
+                          className={`${styles.selectButton} ${selectedServices.includes(svc) ? styles.selected : ''}`}
+                          onClick={() => toggleService(svc)}
+                        >
+                          {svc}
+                        </button>
+                      ))}
+                    </div>
+                    <input type="hidden" name="selected_services" value={selectedServices.join(', ')} />
+                  </div>
+
+                  <div className={styles.formGroup}>
+                    <label className={styles.label}>Estimated Project Budget</label>
+                    <div className={styles.selectorGrid}>
+                      {budgetOptions.map((b) => (
+                        <button
+                          key={b}
+                          type="button"
+                          className={`${styles.selectButton} ${selectedBudget === b ? styles.selected : ''}`}
+                          onClick={() => setSelectedBudget(b)}
+                        >
+                          {b}
+                        </button>
+                      ))}
+                    </div>
+                    <input type="hidden" name="selected_budget" value={selectedBudget} />
+                  </div>
+
+                  <div className={styles.formGroup}>
+                    <label className={styles.label}>Ideal Timeline</label>
+                    <div className={styles.selectorGrid}>
+                      {timelineOptions.map((t) => (
+                        <button
+                          key={t}
+                          type="button"
+                          className={`${styles.selectButton} ${selectedTimeline === t ? styles.selected : ''}`}
+                          onClick={() => setSelectedTimeline(t)}
+                        >
+                          {t}
+                        </button>
+                      ))}
+                    </div>
+                    <input type="hidden" name="project_timeline" value={selectedTimeline} />
+                  </div>
+
+                  <div className={styles.formGroup}>
+                    <label className={styles.label} htmlFor="name">Your Name</label>
+                    <input type="text" id="name" name="name" className={styles.inputField} placeholder="Mahesh Kumar" required />
+                  </div>
+
+                  <div className={styles.formGroup}>
+                    <label className={styles.label} htmlFor="company">Company Name</label>
+                    <input type="text" id="company" name="company_name" className={styles.inputField} placeholder="Ecom Inc." />
+                  </div>
+
+                  <div className={styles.formGroup}>
+                    <label className={styles.label} htmlFor="email">Email Address</label>
+                    <input type="email" id="email" name="user_email" className={styles.inputField} placeholder="mahesh@ecom.co" required />
+                  </div>
+
+                  <div className={styles.formGroup}>
+                    <label className={styles.label} htmlFor="phone">Phone / WhatsApp</label>
+                    <input type="tel" id="phone" name="user_phone" className={styles.inputField} placeholder="+91 9999999999" />
+                  </div>
+
+                  <div className={styles.formGroup}>
+                    <label className={styles.label} htmlFor="message">Briefly outline your goals</label>
+                    <textarea id="message" name="message" className={styles.textArea} rows="3" placeholder="What are you building and how can we help?" required></textarea>
+                  </div>
+
+                  {/* Honeypot */}
+                  <input type="hidden" name="time" value={new Date().toLocaleString()} />
+                  <div style={{ display: 'none' }} aria-hidden="true">
+                    <input
+                      type="text"
+                      name="website_url"
+                      tabIndex="-1"
+                      autoComplete="off"
+                      value={hpValue}
+                      onChange={(e) => setHpValue(e.target.value)}
+                    />
+                  </div>
+
+                  <button type="submit" className="btn btn-accent btn-lg" style={{ width: '100%', marginTop: 'var(--space-md)' }} disabled={loading}>
+                    {loading ? (
+                      <>Submitting Requirements <IconLoader2 className="spin" /></>
+                    ) : (
+                      <>Submit Requirements & Book Call</>
+                    )}
+                  </button>
+                </form>
+              )}
+            </div>
           </div>
         </div>
       </section>

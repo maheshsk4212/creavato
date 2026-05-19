@@ -2,96 +2,120 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
-import {
-  IconArrowUpRight, IconPhoto, IconDeviceMobile, IconBrush,
-  IconDeviceDesktop, IconLayout, IconTool, IconTrendingUp,
-  IconStar, IconHeart, IconMail, IconClock,
-} from '@tabler/icons-react';
+import { IconArrowUpRight, IconStar } from '@tabler/icons-react';
 import styles from './page.module.css';
 
-const filters = ['All work', 'Web design & dev', 'Mobile app', 'UI/UX'];
+const filters = ['All work', 'E-commerce UX', 'Fintech UX/UI', 'SaaS & Enterprise'];
 
 import { portfolioData } from '../../data/portfolioData';
 
 const projects = Object.values(portfolioData).map(p => {
-  let filter = 'UI/UX';
-  if (p.cat.includes('Web')) filter = 'Web design & dev';
-  else if (p.cat.includes('Mobile')) filter = 'Mobile app';
+  let filter = 'SaaS & Enterprise';
+  if (p.cat.includes('Fintech')) filter = 'Fintech UX/UI';
+  else if (p.cat.includes('E-commerce') || p.cat.includes('Mobile')) filter = 'E-commerce UX';
   
   return {
     ...p,
     filter,
     link: p.externalLink || `/portfolio/${p.id}`
   };
-}).filter(p => !p.cat.includes('Logo') && !p.cat.includes('Graphic'));
+});
 
 export default function PortfolioPage() {
   const sectionRef = useScrollReveal();
   const [activeFilter, setActiveFilter] = useState('All work');
 
-  const filtered = activeFilter === 'All work' ? projects : projects.filter((p) => p.filter === activeFilter || p.cat.toLowerCase().includes(activeFilter.toLowerCase()));
+  const filtered = activeFilter === 'All work' 
+    ? projects 
+    : projects.filter((p) => p.filter === activeFilter);
 
   return (
     <div ref={sectionRef}>
+      {/* ── HERO ── */}
       <section className={`${styles.hero} dotted-bg`}>
         <div className="container text-center">
-          <span className="section-tag reveal">Our work</span>
-          <h1 className="section-title reveal">Projects we&apos;re proud of <span className="font-hand" style={{ transform: 'rotate(-5deg)' }}>so far!</span></h1>
-          <p className="section-subtitle centered reveal">From early-stage startups to global enterprise teams — here&apos;s a look at what we&apos;ve built, designed, and shipped.</p>
-          <div className="reveal" style={{ marginTop: 'var(--space-md)', color: '#A0A0A0', fontSize: '13px', fontStyle: 'italic' }}>
-            *Note: Selected work is shown in anonymized format due to client confidentiality and NDA agreements.
+          <span className="section-tag reveal">Portfolio</span>
+          <h1 className="section-title reveal">Designed for high transaction volumes</h1>
+          <p className="section-subtitle centered reveal">
+            We collaborate with ambitious ecommerce, fintech, and enterprise teams to scale metrics. Here is a look at selected work.
+          </p>
+          <div className="reveal" style={{ marginTop: 'var(--space-md)', color: 'var(--text-secondary)', fontSize: '13px', fontStyle: 'italic' }}>
+            *Note: All details are presented under NDA compliance. Selected client names have been anonymized.
           </div>
         </div>
       </section>
 
+      {/* ── GRID SECTION ── */}
       <section className="section">
         <div className="container">
           <div className={`${styles.filterBar} reveal`}>
             {filters.map((f) => (
-              <button key={f} className={`${styles.filterPill} ${activeFilter === f ? styles.active : ''}`} onClick={() => setActiveFilter(f)}>{f}</button>
+              <button 
+                key={f} 
+                className={`${styles.filterPill} ${activeFilter === f ? styles.active : ''}`} 
+                onClick={() => setActiveFilter(f)}
+              >
+                {f}
+              </button>
             ))}
-            <span className={styles.filterCount}>{filtered.length} projects</span>
+            <span className={styles.filterCount}>{filtered.length} Projects</span>
           </div>
 
           <div className={`${styles.projGrid} reveal`}>
-            {filtered.map((p, i) => (
-              <Link href={p.link || "#"} target={p.link ? "_blank" : undefined} rel={p.link ? "noopener noreferrer" : undefined} key={p.name} className={`${styles.projCard} ${p.featured ? styles.featured : ''}`}>
-                <div className={`${styles.projThumb} ${p.featured ? styles.tall : ''}`} style={p.image ? { padding: 0, overflow: 'hidden' } : { backgroundColor: p.color }}>
-                  {p.image ? (
-                    <img src={p.image} alt={`${p.title || p.name} - ${p.cat} project by Crevato`} className={styles.thumbImg} />
-                  ) : (
-                    <div className={styles.thumbContent}>
-                      <span className={styles.thumbCat}>{p.cat}</span>
-                      <h3 className={styles.thumbTitle}>{(p.title || p.name || '').split('—')[0].split('-')[0].trim()}</h3>
-                      <div className={styles.thumbDecor}></div>
-                    </div>
-                  )}
-                </div>
-                <div className={styles.projMeta}>
-                  <div className={styles.projCat}><span className={styles.catDot} style={{ background: p.color }}></span>{p.cat}</div>
-                  <div className={styles.projName}>{p.title || p.name}</div>
-                  <div className={styles.projDesc}>{p.desc}</div>
-                  <div className={styles.projTags}>{p.tags.map((t) => <span key={t} className={styles.projTag}>{t}</span>)}</div>
-                  <div className={styles.projFooter}>
-                    <span className={styles.projResult}><p.resultIcon size={16} stroke={2} /> {p.result}</span>
-                    {!p.cat.includes('Logo') && !p.cat.includes('Graphic') && (
-                      <span className={styles.projLink}>{p.externalLink ? 'Visit Site' : 'View Case Study'} <IconArrowUpRight size={16} /></span>
+            {filtered.map((p) => {
+              const isExternal = !!p.externalLink;
+              return (
+                <Link 
+                  href={p.link || "#"} 
+                  target={isExternal ? "_blank" : undefined} 
+                  rel={isExternal ? "noopener noreferrer" : undefined} 
+                  key={p.id} 
+                  className={styles.projCard}
+                >
+                  <div className={styles.projThumb}>
+                    {p.image ? (
+                      <img src={p.image} alt={p.title} className={styles.thumbImg} />
+                    ) : (
+                      <div className={styles.thumbContent}>
+                        <span className={styles.thumbCat}>{p.cat}</span>
+                        <h3 className={styles.thumbTitle}>{p.title.split('—')[0]}</h3>
+                      </div>
                     )}
                   </div>
-                </div>
-              </Link>
-            ))}
+                  <div className={styles.projMeta}>
+                    <div className={styles.projCat}>
+                      <span className={styles.catDot} style={{ background: p.color }}></span>
+                      {p.cat}
+                    </div>
+                    <div className={styles.projName}>{p.title}</div>
+                    <p className={styles.projDesc}>{p.desc}</p>
+                    <div className={styles.projTags}>
+                      {p.tags.map((t) => <span key={t} className={styles.projTag}>{t}</span>)}
+                    </div>
+                    <div className={styles.projFooter}>
+                      <span className={styles.projResult}>
+                        <IconStar size={14} /> {p.result}
+                      </span>
+                      <span className={styles.projLink}>
+                        {isExternal ? 'Visit Site' : 'View Case Study'} <IconArrowUpRight size={14} />
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      <section className="section dashed-border" style={{ background: 'var(--bg-tertiary)', margin: 'var(--space-2xl) var(--space-lg)', borderRadius: 'var(--radius-xl)' }}>
+      {/* ── CTA SECTION ── */}
+      <section className="section dashed-border" style={{ background: 'var(--bg-tertiary)', margin: '0 var(--space-lg)', borderRadius: 'var(--radius-xl)' }}>
         <div className="container text-center">
-          <h2 className="section-title reveal">Seen something you like?</h2>
-          <p className="section-subtitle centered reveal">Every project starts with a free 30-minute call. Tell us what you&apos;re building.</p>
+          <h2 className="section-title reveal">Interested in collaborating?</h2>
+          <p className="section-subtitle centered reveal">Every product design begins with a free 30-minute scoping call under mutual NDA.</p>
           <div className={`btn-row centered reveal`} style={{ marginTop: 'var(--space-xl)' }}>
-            <Link href="/contact" className="btn btn-primary btn-lg">Start your project <IconArrowUpRight size={18} /></Link>
-            <Link href="/services" className="btn btn-ghost btn-lg">See our services</Link>
+            <Link href="/contact" className="btn btn-primary btn-lg">Book Discovery Call <IconArrowUpRight size={18} /></Link>
+            <Link href="/services" className="btn btn-ghost btn-lg">Explore Capabilities</Link>
           </div>
         </div>
       </section>

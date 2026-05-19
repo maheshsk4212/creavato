@@ -6,7 +6,7 @@
   z-index: 1000;
   display: flex;
   justify-content: center;
-  pointer-events: none; /* Let clicks pass through the wrapper */
+  pointer-events: none;
   padding: 0 var(--space-md);
 }
 
@@ -21,45 +21,42 @@
   padding: 0 10px 0 16px;
   width: 100%;
   max-width: 1000px;
-  pointer-events: auto; /* Re-enable clicks on the pill */
-  box-shadow: var(--shadow-md);
-  border: 2px solid var(--border-primary);
+  pointer-events: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   transition: all var(--transition-base);
 }
 
-/* Light theme overrides for the pill background if needed, but we keep it dark for contrast as per DesignPro */
 [data-theme="light"] .navPill {
-  background: #070707;
-  border-color: #070707;
+  background: #0f172a;
+  border-color: rgba(255, 255, 255, 0.05);
 }
 
 [data-theme="dark"] .navPill {
-  background: #141414;
-  border-color: #333;
-  box-shadow: 4px 4px 0px #00A3FF;
+  background: #0b0f19;
+  border-color: rgba(255, 255, 255, 0.08);
 }
 
 .logo {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
   font-weight: 700;
-  color: #FFF6EC;
+  color: #fff;
   text-decoration: none;
   position: relative;
   z-index: 1001;
 }
 
 .logoImg {
-  height: 40px;
+  height: 34px;
   width: auto;
   object-fit: contain;
   background-color: #FFFFFF;
-  padding: 6px 14px;
+  padding: 4px 12px;
   border-radius: var(--radius-full);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .links {
@@ -69,36 +66,37 @@
 }
 
 .link {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
-  color: #A0A0A0;
+  color: #94a3b8;
   text-decoration: none;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
   padding: 8px 4px;
 }
 
 .link:hover {
-  color: #FFF6EC;
+  color: #fff;
 }
 
 .active {
   color: var(--brand-accent) !important;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .ctaBtn {
   margin-left: var(--space-md);
-  padding: 8px 18px;
-  font-size: 14px;
-  border-width: 2px;
-  border-color: transparent;
+  padding: 8px 16px;
+  font-size: 13px;
+  border: 1px solid rgba(255,255,255,0.1);
   box-shadow: none;
+  background: var(--brand-accent);
+  color: #fff;
+  border-radius: var(--radius-full);
 }
 
 .ctaBtn:hover {
-  transform: translate(0, -2px);
-  box-shadow: 2px 2px 0px #FFF6EC;
-  border-color: #FFF6EC;
+  transform: translateY(-1px);
+  background: #4f46e5;
 }
 
 .actions {
@@ -110,30 +108,30 @@
 }
 
 .themeToggle {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--radius-full);
-  color: #A0A0A0;
-  transition: all 0.2s;
+  border-radius: 50%;
+  color: #94a3b8;
+  transition: all 0.2s ease;
   background: transparent;
 }
 
 .themeToggle:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #FFF6EC;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
 }
 
 .menuBtn {
   display: none;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   align-items: center;
   justify-content: center;
-  border-radius: var(--radius-full);
-  color: #FFF6EC;
+  border-radius: 50%;
+  color: #fff;
   background: transparent;
 }
 
@@ -160,10 +158,10 @@
     justify-content: center;
     align-items: center;
     gap: var(--space-xl);
-    background: var(--bg-dark); /* Dark background so white text/buttons are visible */
+    background: #0f172a;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s ease;
     z-index: 1000;
   }
 
@@ -173,10 +171,10 @@
   }
 
   .link {
-    font-size: var(--text-2xl);
-    font-family: var(--font-display);
-    font-weight: 700;
-    color: #FFF6EC;
+    font-size: var(--text-xl);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    color: #fff;
   }
   
   .link:hover {
@@ -186,20 +184,11 @@
   .ctaBtn {
     margin-left: 0;
     margin-top: var(--space-md);
-    box-shadow: 4px 4px 0px var(--brand-accent);
-    border-color: var(--brand-accent);
-    color: #070707;
-    background: #FFF;
+    background: var(--brand-accent);
+    color: #fff;
   }
   
   [data-theme="dark"] .links {
-    background: #0F0F0F;
-  }
-  
-  [data-theme="dark"] .ctaBtn {
-    background: var(--brand-accent);
-    color: #FFF;
-    border-color: transparent;
-    box-shadow: none;
+    background: #0b0f19;
   }
 }
