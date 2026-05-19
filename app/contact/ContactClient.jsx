@@ -24,7 +24,7 @@ const serviceOptions = [
   'Design Systems Creation',
   'Frontend Engineering Collaboration',
   'Website Maintenance Support',
-  'Social Media Content Management',
+  'Social Media Design Templates',
 ];
 
 const budgetOptions = [

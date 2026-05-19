@@ -27,18 +27,18 @@ import {
 import styles from './page.module.css';
 
 const services = [
-  { icon: IconSearch, title: 'UX Research', desc: 'Competitor audits, user mapping, and usability testing to unlock performance bottlenecks.' },
-  { icon: IconTrendingUp, title: 'Product Strategy', desc: 'Defining MVP scoping, positioning, and feature roadmaps before pushing pixels.' },
-  { icon: IconDeviceDesktop, title: 'SaaS UX/UI Design', desc: 'High-converting dashboard environments, seamless onboarding, and complex web apps.' },
-  { icon: IconShieldCheck, title: 'Fintech Product Design', desc: 'Secure, trust-building financial interfaces, KYC flows, and wealthtech portals.' },
-  { icon: IconCpu, title: 'AI Product Interface Design', desc: 'Transforming complex data models and machine learning pipelines into intuitive workspaces.' },
-  { icon: IconRefresh, title: 'Enterprise UX Modernization', desc: 'Refactoring sluggish, legacy internal software into clean, high-performance engines.' },
-  { icon: IconLayoutGrid, title: 'Design Systems', desc: 'Atomic component libraries built in Figma and code for consistent, rapid scaling.' },
-  { icon: IconLayout, title: 'Web Application Design', desc: 'Custom web platforms prioritizing speed, information architecture, and accessibility.' },
-  { icon: IconDeviceMobile, title: 'Mobile Product Design', desc: 'Frictionless iOS and Android apps designed for native touch-interactions.' },
-  { icon: IconCode, title: 'Frontend Engineering Collaboration', desc: 'Figma-to-code alignment using modern frameworks like Angular and Flutter.' },
-  { icon: IconSettings, title: 'Website Maintenance', desc: 'Continuous performance optimization, security updates, and regular iteration cycles.' },
-  { icon: IconBrandInstagram, title: 'Social Media Management', desc: 'Cohesive, high-end content creation and positioning design across channels.' },
+  { icon: IconSearch, title: 'UX Research', desc: 'Competitor audits, journey mapping, and usability testing to locate friction and drop-off points.' },
+  { icon: IconTrendingUp, title: 'Product Strategy', desc: 'MVP definition, feature scoping, and positioning mapping for transaction systems.' },
+  { icon: IconDeviceDesktop, title: 'SaaS UX/UI Design', desc: 'High-density charts, layout architecture, and user onboarding optimized for B2B dashboards.' },
+  { icon: IconShieldCheck, title: 'Fintech Product Design', desc: 'Secure payment layouts, compliance mapping, KYC wizards, and wallet interfaces.' },
+  { icon: IconCpu, title: 'AI Product Interface Design', desc: 'Humanizing dense machine learning pipelines, chat structures, and automated visual data panels.' },
+  { icon: IconRefresh, title: 'Enterprise UX Modernization', desc: 'Refactoring legacy enterprise dashboards to boost internal workflow efficiency.' },
+  { icon: IconLayoutGrid, title: 'Design Systems', desc: 'Figma component libraries and style tokens built for clean, rapid scaling.' },
+  { icon: IconLayout, title: 'Web Application Design', desc: 'Custom web applications prioritizing speed, structural clarity, and WCAG accessibility.' },
+  { icon: IconDeviceMobile, title: 'Mobile Product Design', desc: 'Frictionless iOS and Android transaction screens built for native touch interaction.' },
+  { icon: IconCode, title: 'Frontend Engineering Collaboration', desc: 'Figma-to-code styling coordination for Angular and Flutter frontends.' },
+  { icon: IconSettings, title: 'Website Maintenance', desc: 'Regular layout updates, performance optimization, and bug updates under structured monthly sprints.' },
+  { icon: IconBrandInstagram, title: 'Social Media Design', desc: 'Cohesive visual templates and content designs to position your brand as an industry authority.' },
 ];
 
 const industries = [
@@ -88,7 +88,7 @@ const faqs = [
 
 const serviceOptions = [
   'E-commerce App', 'Fintech Design', 'SaaS UX/UI', 'Enterprise Redesign',
-  'Design System', 'Frontend Collaboration', 'Website Maintenance', 'Social Media Management'
+  'Design System', 'Frontend Collaboration', 'Website Maintenance', 'Social Media Design'
 ];
 
 const budgetOptions = [
@@ -150,13 +150,13 @@ export default function HomePage() {
           <div className={styles.heroGrid}>
             <div className={styles.heroContent}>
               <div className={styles.heroBadgeWrapper}>
-                <span className={styles.heroSubBadge}>Powered by AVAQON since 2018</span>
+                <span className={styles.heroSubBadge}>Design-Led Product Studio</span>
               </div>
               <h1 className={`${styles.heroTitle} reveal`}>
-                Digital product design for ambitious <span className="font-hand">ecommerce</span> & <span className="font-hand">fintech</span> teams.
+                Design-led digital product studio for ambitious <span className="font-hand">ecommerce</span> & <span className="font-hand">fintech</span> platforms.
               </h1>
               <p className={`${styles.heroSub} reveal`}>
-                Crevato is AVAQON’s premium UX/UI and digital product studio. We design scalable, intuitive, and conversion-focused digital platforms for high-growth enterprises worldwide.
+                Crevato is a premium, design-led digital product studio powered by AVAQON. We design high-conversion checkout flows, secure fintech dashboards, and robust enterprise SaaS platforms.
               </p>
               <div className={`btn-row reveal`}>
                 <a href="#contact" className="btn btn-accent btn-lg">
@@ -231,6 +231,35 @@ export default function HomePage() {
             <div className={styles.credItem}>
               <IconStar size={16} className={styles.credIcon} />
               <span>Global Delivery</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── STUDIO MODEL & CREDIBILITY GRID ── */}
+      <section className="section" style={{ borderBottom: '1px solid var(--border-primary)', background: 'var(--bg-tertiary)' }}>
+        <div className="container">
+          <div className="text-center">
+            <span className="section-tag reveal">Studio Architecture</span>
+            <h2 className="section-title reveal">Built on experience, not hype</h2>
+            <p className="section-subtitle centered reveal">Aligning brand execution with verifiable design leadership, secure delivery systems, and professional collaboration models.</p>
+          </div>
+          <div className={`${styles.credibilityGrid} reveal`} style={{ marginTop: 'var(--space-2xl)' }}>
+            <div className={styles.credCard}>
+              <h4 className={styles.credCardTitle}>Founder Experience</h4>
+              <p className={styles.credCardText}>Led by Mahesh SK (UX/UI Head) with over a decade of design leadership, shaping high-conversion checkouts and complex transaction telemetry dashboards.</p>
+            </div>
+            <div className={styles.credCard}>
+              <h4 className={styles.credCardTitle}>AVAQON Shared Infrastructure</h4>
+              <p className={styles.credCardText}>Backed by AVAQON's operational credibility and global delivery power established since 2018, ensuring project security and administrative stability.</p>
+            </div>
+            <div className={styles.credCard}>
+              <h4 className={styles.credCardTitle}>Strict NDA Compliance</h4>
+              <p className={styles.credCardText}>We enforce strict mutual NDAs to protect proprietary payment routes, wealthtech architectures, and database layouts.</p>
+            </div>
+            <div className={styles.credCard}>
+              <h4 className={styles.credCardTitle}>Developer-Aligned Delivery</h4>
+              <p className={styles.credCardText}>We design systems specifically for developers, providing Figma design tokens mapped directly to Angular and Flutter frontends.</p>
             </div>
           </div>
         </div>

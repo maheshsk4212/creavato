@@ -181,18 +181,18 @@ const servicesData = [
     process: ['Audit checkup', 'Sprint patch planning', 'Deployment QA'],
   },
   {
-    id: 'social-media-management',
+    id: 'social-media-design',
     icon: IconBrandInstagram,
-    name: 'Social Media Management',
-    tagline: 'Premium content and strategic positioning',
-    desc: 'Designing premium content strategy, custom graphics, and creative messaging to position your brand as an industry leader.',
+    name: 'Social Media Design',
+    tagline: 'Premium templates and content visual layout systems',
+    desc: 'Designing visual identity templates, custom graphics, and creative content structures to represent your brand cohesively across digital networks.',
     deliverables: [
-      'Premium brand content layout templates',
+      'Visual template guidelines for brand layouts',
       'Custom asset graphics & data storytelling charts',
-      'Creative messaging & copy writing guidelines',
-      'Social alignment calendars',
+      'Visual messaging & copy layout templates',
+      'Visual identity style sheets',
     ],
-    process: ['Positioning review', 'Template curation', 'Calendar scheduling'],
+    process: ['Visual review', 'Template curation', 'Style guide signoff'],
   },
 ];
 
