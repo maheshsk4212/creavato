@@ -95,6 +95,7 @@ export default function AboutPage() {
                 </div>
               </div>
               <ul className={styles.founderCreds}>
+                <li>Co-Founder of AVAQON & Crevato</li>
                 <li>Lead UI/UX Designer (10+ Years Exp.)</li>
                 <li>FinTech & Banking Specialist (Oracle OBDX)</li>
                 <li>User Research & Data Visualization</li>
