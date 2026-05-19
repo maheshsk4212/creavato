@@ -150,13 +150,15 @@ export default function HomePage() {
           <div className={styles.heroGrid}>
             <div className={styles.heroContent}>
               <div className={styles.heroBadgeWrapper}>
-                <span className={styles.heroSubBadge}>Design-Led Product Studio</span>
+                <span className={styles.heroSubBadge}>DESIGN-LED DIGITAL PRODUCT STUDIO</span>
               </div>
               <h1 className={`${styles.heroTitle} reveal`}>
-                Design-led digital product studio for ambitious <span className="font-hand">ecommerce</span> & <span className="font-hand">fintech</span> platforms.
+                We design and build <br />
+                digital products that <br />
+                <span className="font-hand">help ambitious businesses grow.</span>
               </h1>
               <p className={`${styles.heroSub} reveal`}>
-                Crevato is a premium, design-led digital product studio powered by AVAQON. We design high-conversion checkout flows, secure fintech dashboards, and robust enterprise SaaS platforms.
+                Crevato is a premium digital product studio powered by AVAQON. We create high-performing websites, SaaS platforms, mobile apps, enterprise dashboards, and conversion-focused digital experiences.
               </p>
               <div className={`btn-row reveal`}>
                 <a href="#contact" className="btn btn-accent btn-lg">
@@ -168,14 +170,27 @@ export default function HomePage() {
               </div>
             </div>
             <div className={`${styles.heroVisual} reveal`}>
-              <div className={styles.mockupContainer}>
-                {/* Sleek dashboard layout with glassmorphic layers */}
-                <div className={styles.sleekMockup}>
+              <div className={styles.compositeShowcase}>
+                {/* 1. Website UI Preview (floating at top-left) */}
+                <div className={`${styles.showcaseCard} ${styles.showcaseWebsite}`}>
+                  <div className={styles.webHeader}>
+                    <span className={styles.webDot}></span>
+                    <span className={styles.webDot}></span>
+                    <span className={styles.webDot}></span>
+                  </div>
+                  <div className={styles.webBody}>
+                    <div className={styles.webHeroText}>E-commerce Checkout</div>
+                    <div className={styles.webButton}>Buy Now</div>
+                  </div>
+                </div>
+
+                {/* 2. SaaS Dashboard Mockup (main center backing card) */}
+                <div className={`${styles.showcaseCard} ${styles.showcaseSaaS}`}>
                   <div className={styles.mockupHeader}>
                     <span className={styles.mockupDot}></span>
                     <span className={styles.mockupDot}></span>
                     <span className={styles.mockupDot}></span>
-                    <span className={styles.mockupTitle}>dashboard.crevato.design</span>
+                    <span className={styles.mockupTitle}>saas.crevato.design</span>
                   </div>
                   <div className={styles.mockupBody}>
                     <div className={styles.mockupSidebar}>
@@ -185,18 +200,43 @@ export default function HomePage() {
                     </div>
                     <div className={styles.mockupMain}>
                       <div className={styles.chartHeader}>
-                        <div className={styles.chartTitle}>Ecommerce Checkout Optimization</div>
-                        <div className={styles.chartStat}>+18.4% Revenue</div>
+                        <div className={styles.chartTitle}>Enterprise Dashboard</div>
+                        <div className={styles.chartStat}>Active Systems</div>
                       </div>
                       <div className={styles.chartVisual}>
-                        <div className={styles.chartBar} style={{ height: '30%' }}></div>
-                        <div className={styles.chartBar} style={{ height: '50%' }}></div>
-                        <div className={styles.chartBar} style={{ height: '45%' }}></div>
-                        <div className={styles.chartBar} style={{ height: '75%' }}></div>
-                        <div className={styles.chartBar} style={{ height: '90%' }}></div>
+                        <div className={styles.chartBar} style={{ height: '40%' }}></div>
+                        <div className={styles.chartBar} style={{ height: '70%' }}></div>
+                        <div className={styles.chartBar} style={{ height: '55%' }}></div>
+                        <div className={styles.chartBar} style={{ height: '85%' }}></div>
                       </div>
                     </div>
                   </div>
+                </div>
+
+                {/* 3. Mobile App Screen (floating front-right) */}
+                <div className={`${styles.showcaseCard} ${styles.showcaseMobile}`}>
+                  <div className={styles.mobileCamera}></div>
+                  <div className={styles.mobileScreen}>
+                    <div className={styles.mobileHeader}>
+                      <div className={styles.mobileTitle}>Fintech App</div>
+                    </div>
+                    <div className={styles.mobileBalanceCard}>
+                      <div className={styles.balLabel}>Net Portfolio</div>
+                      <div className={styles.balAmount}>₹12,45,000</div>
+                    </div>
+                    <div className={styles.mobileGraph}>
+                      <div className={styles.graphWave}></div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 4. Analytics Overlay (floating bottom-left) */}
+                <div className={`${styles.showcaseCard} ${styles.showcaseAnalytics}`}>
+                  <div className={styles.analyticsHeader}>
+                    <IconTrendingUp size={16} className={styles.analyticsIcon} />
+                    <span>Conversion Optimized</span>
+                  </div>
+                  <div className={styles.analyticsStat}>+32.4%</div>
                 </div>
               </div>
             </div>
