@@ -151,7 +151,7 @@ export default function ContactPage() {
                     </div>
                     <div className={styles.fieldGroup}>
                       <label className={styles.fieldLabel}>WhatsApp / Mobile</label>
-                      <input type="tel" name="user_phone" className={styles.field} placeholder="+91 99999 88888" />
+                      <input type="tel" name="user_phone" className={styles.field} placeholder="+91 96067 93237" />
                     </div>
                   </div>
 

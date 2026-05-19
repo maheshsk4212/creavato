@@ -541,7 +541,7 @@ export default function HomePage() {
 
                   <div className={styles.formGroup}>
                     <label className={styles.label} htmlFor="phone">Phone / WhatsApp</label>
-                    <input type="tel" id="phone" name="user_phone" className={styles.inputField} placeholder="+91 9999999999" />
+                    <input type="tel" id="phone" name="user_phone" className={styles.inputField} placeholder="+91 96067 93237" />
                   </div>
 
                   <div className={styles.formGroup}>
