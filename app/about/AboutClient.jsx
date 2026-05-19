@@ -110,6 +110,7 @@ export default function AboutPage() {
                 </div>
               </div>
               <ul className={styles.founderCreds}>
+                <li>Founder & Managing Director of AVAQON (est. 2018)</li>
                 <li>Electronics Engineering background bridging code & UX design</li>
                 <li>Led UX at DAT Freight: $1.8M ARR uplift & 18% conversion growth</li>
                 <li>Designed for J&J and Fast Company-recognized AI products</li>
