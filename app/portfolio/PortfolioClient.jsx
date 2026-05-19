@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
-import { IconArrowUpRight, IconStar, IconFlask } from '@tabler/icons-react';
+import { IconArrowUpRight, IconStar } from '@tabler/icons-react';
 import styles from './page.module.css';
 
 const filters = ['All work', 'E-commerce UX', 'Fintech UX/UI', 'SaaS & Enterprise'];
@@ -19,7 +19,7 @@ const projects = Object.values(portfolioData).map(p => {
     filter,
     link: p.externalLink || `/portfolio/${p.id}`
   };
-});
+}).sort((a, b) => (a.conceptRedesign ? 1 : 0) - (b.conceptRedesign ? 1 : 0));
 
 export default function PortfolioPage() {
   const sectionRef = useScrollReveal();
@@ -83,11 +83,6 @@ export default function PortfolioPage() {
                     )}
                   </div>
                   <div className={styles.projMeta}>
-                    {p.conceptRedesign && (
-                      <div className={styles.conceptBadge}>
-                        <IconFlask size={11} /> Concept Redesign
-                      </div>
-                    )}
                     <div className={styles.projCat}>
                       <span className={styles.catDot} style={{ background: p.color }}></span>
                       {p.cat}
