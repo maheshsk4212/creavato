@@ -130,6 +130,31 @@
   flex-grow: 1;
 }
 
+.conceptBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #92400e;
+  background: #fef3c7;
+  border: 1px solid #fbbf24;
+  border-radius: var(--radius-sm);
+  padding: 3px 9px;
+  margin-bottom: var(--space-sm);
+  width: fit-content;
+}
+
+[data-theme='dark'] .conceptBadge {
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.1);
+  border-color: rgba(251, 191, 36, 0.3);
+}
+
+
 .projCat {
   display: flex;
   align-items: center;

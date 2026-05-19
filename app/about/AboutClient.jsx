@@ -29,9 +29,10 @@ const values = [
 ];
 
 const team = [
-  { name: 'Mahesh SK', role: 'UX/UI Head', skills: ['UI/UX Design', 'Product Strategy', 'Fintech & E-commerce'], initials: 'MSK', color: '#6366f1', links: [{ icon: IconBrandLinkedin, url: 'https://linkedin.com' }] },
-  { name: 'Kaif Kareeme', role: 'Business & Creative Operations', skills: ['MD of AVAQON', 'Studio Operations', 'Creative Business'], initials: 'KK', color: '#8b5cf6', links: [{ icon: IconBrandLinkedin, url: 'https://linkedin.com' }] },
-  { name: 'Dev Kumar', role: 'Senior Frontend Engineer', skills: ['Flutter', 'Angular', 'React UI Integration'], initials: 'DK', color: '#10b981', links: [{ icon: IconBrandLinkedin, url: 'https://linkedin.com' }, { icon: IconBrandGithub, url: 'https://github.com' }] },
+  { name: 'Mahesh SK', role: 'Co-Founder & UX/UI Lead', skills: ['UI/UX Design', 'Product Strategy', 'Fintech & E-commerce'], initials: 'MSK', color: '#6366f1', links: [{ icon: IconBrandLinkedin, url: 'https://www.linkedin.com/in/mahesh-sk-567604138/' }] },
+  { name: 'Kaif Kareem', role: 'Founder & Creative Director', skills: ['CRO & Experimentation', 'Design Systems', 'Product Strategy'], initials: 'KK', color: '#8b5cf6', links: [{ icon: IconBrandLinkedin, url: 'https://linkedin.com/in/kaifkareeme' }] },
+  { name: 'Sharath Kumar', role: 'Technical Head', skills: ['Angular', 'Flutter', 'React', 'Technical Architecture'], initials: 'SK', color: '#10b981', links: [{ icon: IconBrandLinkedin, url: 'https://linkedin.com' }] },
+  { name: 'Sathish V', role: 'UI Specialist', skills: ['Visual Design', 'Design Systems', 'UI Engineering'], initials: 'SV', color: '#f59e0b', links: [{ icon: IconBrandLinkedin, url: 'https://linkedin.com' }] },
 ];
 
 const milestones = [
@@ -106,16 +107,16 @@ export default function AboutPage() {
               <div className={styles.founderHeader}>
                 <div className={styles.founderImgPlaceholder} style={{ background: '#8b5cf6' }}>KK</div>
                 <div>
-                  <h3 className={styles.founderName}>Kaif Kareeme</h3>
-                  <div className={styles.founderRole}>Business & Creative Operations</div>
+                  <h3 className={styles.founderName}>Kaif Kareem</h3>
+                  <div className={styles.founderRole}>Founder & Managing Director, AVAQON</div>
                 </div>
               </div>
               <ul className={styles.founderCreds}>
-                <li>Founder & Managing Director of AVAQON (est. 2018)</li>
-                <li>Electronics Engineering background bridging code & UX design</li>
-                <li>Led UX at DAT Freight: $1.8M ARR uplift & 18% conversion growth</li>
-                <li>Designed for J&J and Fast Company-recognized AI products</li>
-                <li>Specializes in Healthcare, Logistics, Fintech, & AI design systems</li>
+                <li>Founder & MD of AVAQON (est. 2018) — parent studio of Crevato</li>
+                <li>Strategy-driven UX/UI Designer with 10+ years across web & mobile</li>
+                <li>CRO & Experimentation specialist — scaled 50+ A/B tests to production</li>
+                <li>DAT Freight: delivered $1.8M ARR uplift & 18% conversion growth</li>
+                <li>Designed for Johnson & Johnson and Fast Company-recognized AI products</li>
               </ul>
             </div>
           </div>

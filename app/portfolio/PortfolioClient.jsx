@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
-import { IconArrowUpRight, IconStar } from '@tabler/icons-react';
+import { IconArrowUpRight, IconStar, IconFlask } from '@tabler/icons-react';
 import styles from './page.module.css';
 
 const filters = ['All work', 'E-commerce UX', 'Fintech UX/UI', 'SaaS & Enterprise'];
@@ -83,6 +83,11 @@ export default function PortfolioPage() {
                     )}
                   </div>
                   <div className={styles.projMeta}>
+                    {p.conceptRedesign && (
+                      <div className={styles.conceptBadge}>
+                        <IconFlask size={11} /> Concept Redesign
+                      </div>
+                    )}
                     <div className={styles.projCat}>
                       <span className={styles.catDot} style={{ background: p.color }}></span>
                       {p.cat}
