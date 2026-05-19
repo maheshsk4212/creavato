@@ -95,10 +95,10 @@ export default function AboutPage() {
                 </div>
               </div>
               <ul className={styles.founderCreds}>
-                <li>10+ years design leadership experience</li>
-                <li>Specialist in E-commerce & Fintech UX</li>
-                <li>Led design for complex Enterprise applications</li>
-                <li>Ex-SaaS product designer</li>
+                <li>Electronics Engineering background bridging code & UX design</li>
+                <li>Led UX at DAT Freight: $1.8M ARR uplift & 18% conversion growth</li>
+                <li>Designed for J&J and Fast Company-recognized AI products</li>
+                <li>Specializes in Healthcare, Logistics, Fintech, & AI design systems</li>
               </ul>
             </div>
             <div className={styles.founderCard}>
