@@ -39,7 +39,7 @@ export default function Footer() {
               <a href="https://www.linkedin.com/company/122154262/" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="LinkedIn">
                 <IconBrandLinkedin size={18} />
               </a>
-              <a href="https://wa.me/917019440153" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="WhatsApp">
+              <a href="https://wa.me/919606793237" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="WhatsApp">
                 <IconBrandWhatsapp size={18} />
               </a>
               <a href="https://instagram.com/crevato" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="Instagram">
@@ -79,8 +79,8 @@ export default function Footer() {
               <a href="mailto:sales@crevato.in" className={styles.footerLink}>
                 sales@crevato.in
               </a>
-              <a href="tel:+917019440153" className={styles.footerLink}>
-                +91 7019440153
+              <a href="tel:+919606793237" className={styles.footerLink}>
+                +91 9606793237
               </a>
               <span className={styles.footerLink}>
                 No 43, KR Puram, Bengaluru - 560049

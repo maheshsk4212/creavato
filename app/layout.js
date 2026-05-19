@@ -48,7 +48,7 @@ export default function RootLayout({ children }) {
               'name': 'Crevato',
               'image': 'https://crevato.in/logo.png',
               'url': 'https://crevato.in',
-              'telephone': '+917019440153',
+              'telephone': '+919606793237',
               'address': {
                 '@type': 'PostalAddress',
                 'streetAddress': 'no 43, KR puram',

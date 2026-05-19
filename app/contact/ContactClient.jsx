@@ -264,7 +264,7 @@ export default function ContactPage() {
             <div className={styles.sidebar}>
               <div className={styles.sideCard}>
                 <h4 className={styles.sideTitle}>Prefer direct chat?</h4>
-                <a href="https://wa.me/917019440153" target="_blank" rel="noopener noreferrer" className={styles.whatsappBtn}>
+                <a href="https://wa.me/919606793237" target="_blank" rel="noopener noreferrer" className={styles.whatsappBtn}>
                   <IconBrandWhatsapp size={16} /> WhatsApp Support
                 </a>
                 <p className={styles.sideNote}>Usually online</p>
