@@ -157,9 +157,8 @@ export default function HomePage() {
                 <span className={styles.heroSubBadge}>DESIGN-LED DIGITAL PRODUCT STUDIO</span>
               </div>
               <h1 className={`${styles.heroTitle} reveal`}>
-                We design and build <br />
-                digital products that <br />
-                <span className="font-hand">help ambitious businesses grow.</span>
+                We design and build digital products
+                that <span className="font-hand">help businesses grow.</span>
               </h1>
               <p className={`${styles.heroSub} reveal`}>
                 Crevato is a premium digital product studio powered by AVAQON. We create high-performing websites, SaaS platforms, mobile apps, enterprise dashboards, and conversion-focused digital experiences.
@@ -378,7 +377,7 @@ export default function HomePage() {
             ))}
           </div>
           <div style={{ marginTop: 'var(--space-2xl)' }}>
-            <Link href="/portfolio" className="btn btn-primary btn-lg">
+            <Link href="/portfolio" className="btn btn-accent btn-lg">
               Explore All Case Studies <IconArrowUpRight size={18} />
             </Link>
           </div>
@@ -386,11 +385,11 @@ export default function HomePage() {
       </section>
 
       {/* ── PROCESS ── */}
-      <section className="section" style={{ borderTop: '1px solid var(--border-primary)', borderBottom: '1px solid var(--border-primary)' }}>
+      <section className="section" style={{ background: 'var(--bg-dark)', borderTop: 'none', borderBottom: 'none' }}>
         <div className="container text-center">
-          <span className="section-tag reveal">Methodology</span>
-          <h2 className="section-title reveal">Our strategic product workflow</h2>
-          <p className="section-subtitle centered reveal">A high-fidelity process designed for enterprise scale.</p>
+          <span className="section-tag reveal" style={{ background: 'rgba(99,102,241,0.15)', borderColor: 'rgba(99,102,241,0.3)', color: 'var(--brand-accent)' }}>Methodology</span>
+          <h2 className="section-title reveal" style={{ color: '#ffffff' }}>Our strategic product workflow</h2>
+          <p className="section-subtitle centered reveal" style={{ color: 'rgba(255,255,255,0.55)' }}>A high-fidelity process designed for enterprise scale.</p>
           <div className={`${styles.processGrid} reveal`}>
             {process.map((step) => (
               <div key={step.num} className={styles.stepCard}>
@@ -404,7 +403,7 @@ export default function HomePage() {
       </section>
 
       {/* ── TESTIMONIALS ── */}
-      <section className="section dotted-bg">
+      <section className="section dotted-bg" style={{ background: 'var(--bg-secondary)' }}>
         <div className="container text-center">
           <span className="section-tag reveal">Social Proof</span>
           <h2 className="section-title reveal">Validated business outcomes</h2>
