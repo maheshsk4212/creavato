@@ -3,6 +3,25 @@
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid var(--border-primary);
+  background: var(--bg-primary);
+}
+
+/* Radial glow to anchor the hero visually */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -80px;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.10) 0%, rgba(139, 92, 246, 0.06) 40%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
 }
 
 .heroGrid {
@@ -61,6 +80,20 @@
   max-width: 480px;
   height: 400px;
   margin: 0 auto;
+}
+
+/* Soft glow anchor behind all floating cards */
+.compositeShowcase::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 130%;
+  height: 130%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.13) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .showcaseCard {
@@ -370,7 +403,7 @@
 
 /* ── CREDIBILITY STRIP ── */
 .credibilityStripSection {
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
   border-bottom: 1px solid var(--border-primary);
   padding: 24px 0;
 }
@@ -412,18 +445,36 @@
 }
 
 .svcCard {
-  background: var(--bg-secondary);
+  background: var(--bg-card);
   border: 1px solid var(--border-primary);
   border-radius: var(--radius-lg);
   padding: var(--space-xl);
   text-align: left;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Accent top bar that slides in on hover */
+.svcCard::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--brand-gradient);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  opacity: 0;
+  transition: opacity 0.25s ease;
 }
 
 .svcCard:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--text-tertiary);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(99, 102, 241, 0.25);
+}
+
+.svcCard:hover::before {
+  opacity: 1;
 }
 
 .svcIcon {
@@ -474,7 +525,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 240px;
 }
 
 .indNumber {
@@ -811,8 +861,33 @@
 
 /* ── CTA CONVERSION HUB ── */
 .ctaSection {
-  background: var(--bg-secondary);
-  border-top: 1px solid var(--border-primary);
+  background: var(--bg-dark);
+  border-top: none;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle radial glow for CTA dark section */
+.ctaSection::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.ctaSection::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, transparent 65%);
+  pointer-events: none;
 }
 
 .ctaGrid {
@@ -824,6 +899,8 @@
 
 .ctaIntro {
   text-align: left;
+  position: relative;
+  z-index: 1;
 }
 
 .ctaTitle {
@@ -831,11 +908,12 @@
   font-weight: 800;
   margin-bottom: var(--space-md);
   letter-spacing: -0.04em;
+  color: #ffffff;                /* white text on dark bg */
 }
 
 .ctaDesc {
   font-size: var(--text-lg);
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.60);
   line-height: 1.6;
   margin-bottom: var(--space-xl);
 }
@@ -845,11 +923,11 @@
   align-items: center;
   gap: var(--space-sm);
   font-size: var(--text-sm);
-  color: var(--text-secondary);
-  background: var(--bg-primary);
+  color: rgba(255, 255, 255, 0.50);
+  background: rgba(255, 255, 255, 0.06);
   padding: 12px 18px;
   border-radius: var(--radius-md);
-  border: 1px solid var(--border-primary);
+  border: 1px solid rgba(255, 255, 255, 0.10);
 }
 
 .consultIcon {
@@ -857,12 +935,15 @@
 }
 
 .formCard {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-primary);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.10);
   border-radius: var(--radius-xl);
   padding: var(--space-2xl);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
   text-align: left;
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(12px);
 }
 
 .formGroup {
@@ -875,7 +956,7 @@
   font-size: var(--text-sm);
   font-weight: 600;
   margin-bottom: var(--space-sm);
-  color: var(--text-primary);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .selectorGrid {
@@ -885,22 +966,22 @@
 }
 
 .selectButton {
-  background: var(--bg-primary);
-  border: 1px solid var(--border-primary);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-sm);
   padding: 10px 14px;
   font-family: var(--font-sans);
   font-size: var(--text-xs);
   font-weight: 500;
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.65);
   text-align: center;
   transition: all 0.15s ease;
 }
 
 .selectButton:hover {
-  background: var(--bg-tertiary);
-  color: var(--text-primary);
-  border-color: var(--text-tertiary);
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 .selectButton.selected {
@@ -912,20 +993,24 @@
 
 .inputField, .textArea {
   width: 100%;
-  background: var(--bg-primary);
-  border: 1px solid var(--border-primary);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-sm);
   padding: 12px 16px;
   font-family: var(--font-sans);
   font-size: var(--text-sm);
-  color: var(--text-primary);
+  color: #ffffff;
   outline: none;
   transition: border-color 0.2s ease;
 }
 
+.inputField::placeholder, .textArea::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
 .inputField:focus, .textArea:focus {
-  border-color: var(--brand-accent);
-  background: var(--bg-secondary);
+  border-color: rgba(99, 102, 241, 0.6);
+  background: rgba(255, 255, 255, 0.09);
 }
 
 .textArea {
@@ -951,11 +1036,12 @@
   font-size: var(--text-2xl);
   font-weight: 800;
   margin-bottom: var(--space-xs);
+  color: #ffffff;
 }
 
 .successDesc {
   font-size: var(--text-base);
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.60);
   margin-bottom: var(--space-lg);
   max-width: 320px;
   line-height: 1.5;

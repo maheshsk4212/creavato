@@ -51,9 +51,9 @@ export default function RootLayout({ children }) {
               'telephone': '+919606793237',
               'address': {
                 '@type': 'PostalAddress',
-                'streetAddress': 'no 43, KR puram',
-                'addressLocality': 'Bengaluru',
-                'postalCode': '560049',
+                'streetAddress': 'No.41, 4th Cross, Anjanapura 5th G Block, JP Nagar 9th Phase',
+                'addressLocality': 'Bangalore',
+                'postalCode': '560108',
                 'addressCountry': 'IN'
               },
               'geo': {

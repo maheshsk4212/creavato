@@ -23,6 +23,10 @@ import {
   IconCircleCheck,
   IconLoader2,
   IconCalendar,
+  IconBriefcase,
+  IconUsers,
+  IconMapPin,
+  IconGlobe,
 } from '@tabler/icons-react';
 import styles from './page.module.css';
 
@@ -254,22 +258,22 @@ export default function HomePage() {
             </div>
             <div className={styles.credDivider}></div>
             <div className={styles.credItem}>
-              <IconStar size={16} className={styles.credIcon} />
+              <IconBriefcase size={16} className={styles.credIcon} />
               <span>50+ Projects Delivered</span>
             </div>
             <div className={styles.credDivider}></div>
             <div className={styles.credItem}>
-              <IconStar size={16} className={styles.credIcon} />
+              <IconUsers size={16} className={styles.credIcon} />
               <span>30+ Clients Served</span>
             </div>
             <div className={styles.credDivider}></div>
             <div className={styles.credItem}>
-              <IconStar size={16} className={styles.credIcon} />
+              <IconMapPin size={16} className={styles.credIcon} />
               <span>Bengaluru Based</span>
             </div>
             <div className={styles.credDivider}></div>
             <div className={styles.credItem}>
-              <IconStar size={16} className={styles.credIcon} />
+              <IconGlobe size={16} className={styles.credIcon} />
               <span>Global Delivery</span>
             </div>
           </div>
@@ -277,7 +281,7 @@ export default function HomePage() {
       </section>
 
       {/* ── STUDIO MODEL & CREDIBILITY GRID ── */}
-      <section className="section" style={{ borderBottom: '1px solid var(--border-primary)', background: 'var(--bg-tertiary)' }}>
+      <section className="section" style={{ borderBottom: '1px solid var(--border-primary)', background: 'var(--bg-secondary)' }}>
         <div className="container">
           <div className="text-center">
             <span className="section-tag reveal">Studio Architecture</span>

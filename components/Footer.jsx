@@ -83,7 +83,7 @@ export default function Footer() {
                 +91 9606793237
               </a>
               <span className={styles.footerLink}>
-                No 43, KR Puram, Bengaluru - 560049
+                No.41, 4th Cross, Anjanapura 5th G Block, JP Nagar 9th Phase, Bangalore - 560108
               </span>
             </div>
             <Link href="/contact" className={`btn btn-primary ${styles.footerCta}`} style={{ marginTop: 'var(--space-md)' }}>

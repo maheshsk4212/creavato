@@ -20,12 +20,12 @@
   --brand-gradient-hover: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
 
   /* Backgrounds */
-  --bg-primary: #fafafa; 
-  --bg-secondary: #ffffff;
-  --bg-tertiary: #f4f4f5;
+  --bg-primary: #ffffff;           /* True white — clean base */
+  --bg-secondary: #f7f7ff;         /* Very faint indigo-tinted section band */
+  --bg-tertiary: #eeeefd;          /* Slightly deeper alt-section band */
   --bg-card: #ffffff;
-  --bg-dark: #030303;
-  --bg-glass: rgba(255, 255, 255, 0.75);
+  --bg-dark: #06060a;
+  --bg-glass: rgba(255, 255, 255, 0.80);
 
   /* Text Colors */
   --text-primary: #09090b;
@@ -58,11 +58,11 @@
   --radius-xl: 24px;
   --radius-full: 9999px;
 
-  /* Shadows (Minimal Modern) */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
-  --shadow-glow: 0 0 40px rgba(99, 102, 241, 0.15);
+  /* Shadows — stronger so cards lift off the white bg */
+  --shadow-sm: 0 1px 4px 0 rgba(99, 102, 241, 0.06), 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 6px 20px -2px rgba(99, 102, 241, 0.10), 0 2px 6px -2px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 16px 40px -4px rgba(99, 102, 241, 0.12), 0 4px 10px -4px rgba(0, 0, 0, 0.06);
+  --shadow-glow: 0 0 60px rgba(99, 102, 241, 0.20);
 
   /* Typography */
   --font-sans: 'Inter', sans-serif;
@@ -164,11 +164,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 { font-size: var(--text-5xl); }
-h2 { font-size: var(--text-4xl); }
-h3 { font-size: var(--text-3xl); }
-h4 { font-size: var(--text-2xl); }
-h5 { font-size: var(--text-xl); }
-h6 { font-size: var(--text-lg); }
+h2 { font-size: clamp(1.75rem, 3.5vw, 2.35rem); }   /* calmer — don't compete with hero h1 */
+h3 { font-size: var(--text-2xl); }
+h4 { font-size: var(--text-xl); }
+h5 { font-size: var(--text-lg); }
+h6 { font-size: var(--text-base); }
 
 p {
   color: var(--text-secondary);
@@ -263,8 +263,8 @@ p {
 }
 
 .btn-primary:hover {
-  background: var(--text-secondary);
-  border-color: var(--text-secondary);
+  background: #27272a;
+  border-color: #27272a;
 }
 
 .btn-accent {
@@ -326,12 +326,13 @@ p {
 }
 
 .dotted-bg {
-  background-image: radial-gradient(rgba(99, 102, 241, 0.08) 1px, transparent 1px);
-  background-size: 24px 24px;
+  background-image: radial-gradient(rgba(99, 102, 241, 0.15) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
 [data-theme="dark"] .dotted-bg {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
 /* ── Grid Utilities ── */

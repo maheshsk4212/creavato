@@ -278,7 +278,7 @@ export default function ContactPage() {
                 </div>
                 <div className={styles.contactItem}>
                   <div className={styles.contactIcon}><IconMapPin size={16} /></div>
-                  <div><span className={styles.contactLabel}>Studio Location</span><br /><span style={{ fontWeight: 600 }}>No 43, KR Puram, Bengaluru - 560049</span></div>
+                  <div><span className={styles.contactLabel}>Studio Location</span><br /><span style={{ fontWeight: 600 }}>No.41, 4th Cross, Anjanapura 5th G Block, JP Nagar 9th Phase, Bangalore - 560108</span></div>
                 </div>
               </div>
 
